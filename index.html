@@ -38,11 +38,15 @@
 				        I am a final-year research (PhD) postgraduate student in the Next Generation Neural Interfaces (NGNI) Lab at the Department of Electrical and Electronic Engineering, Imperial College London. My PhD focuses on exploring the use of Ultra-Wideband (UWB) radars for human motion analysis.
 				    </p>
 				    <p id="additional" style="display: none;">
-				        Additional information paragraph 1.
+				        I received my MEng Biomedical Engineering degree with with Electrical Engineering specialisation with First Class honours from the Department of Bioengineering, Imperial College London in 2020.
 				    </p>
 				    <p id="additional2" style="display: none;">
-				        Additional information paragraph 2.
+				        As an undergraduate student at Imperial College London, I had the opportunity to be educated on a full range of engineering courses by acknowledged professors. During the third year of my studies, I selected the electrical engineering pathway of the course, which enabled me to become more specialized in electrical engineering, while having a strong background on human biology, mechanics and mathematics. The modules relevant to my area of focus that intrigued me the most were Digital Biosignal Processing, Advanced Signal Processing, Adaptive Signal Processing and Machine Intelligence, Reinforcement Learning, Brain-Machine Interfaces and Computational Neuroscience. My undergraduate studies as a Bioengineer assisted me in developing essential computer modelling and programming skills using C, C++, MATLAB and Python.
 				    </p>
+
+				    <p id="additional3" style="display: none;">
+        				My academic projects have reinforced my knowledge of engineering principles and applications in real-life scenarios and strengthened my time management, communication, teamwork and presentation skills.
+    			            </p>
 				
 				    <ul class="actions">
 				        <li><a href="#" id="toggleButton" class="button" onclick="toggleVisibility()">Read More</a></li>
@@ -53,15 +57,18 @@
 				    function toggleVisibility() {
 				        var additionalParagraph = document.getElementById('additional');
 				        var additionalParagraph2 = document.getElementById('additional2');
+				        var additionalParagraph3 = document.getElementById('additional3');
 				        var toggleButton = document.getElementById('toggleButton');
 				
 				        if (additionalParagraph.style.display === 'none') {
 				            additionalParagraph.style.display = 'block';
 				            additionalParagraph2.style.display = 'block';
+				            additionalParagraph3.style.display = 'block';
 				            toggleButton.innerHTML = 'Read Less';
 				        } else {
 				            additionalParagraph.style.display = 'none';
 				            additionalParagraph2.style.display = 'none';
+				            additionalParagraph3.style.display = 'none';
 				            toggleButton.innerHTML = 'Read More';
 				        }
 				    }
