@@ -30,18 +30,42 @@
 			<div id="main">
 
 				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>About me</h2>
-						</header>
-						<p>I am a final-year research (PhD) postgraduate student in the Next Generation Neural Interfaces (NGNI) Lab at the Department of Electrical and Electronic Engineering, Imperial College London. My PhD focuses on exploring the use of Ultra-Wideband (UWB) radars for human motion analysis.</p>
-						
-						
-						
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</section>
+				<section id="one">
+				    <header class="major">
+				        <h2>About me</h2>
+				    </header>
+				    <p id="intro">
+				        I am a final-year research (PhD) postgraduate student in the Next Generation Neural Interfaces (NGNI) Lab at the Department of Electrical and Electronic Engineering, Imperial College London. My PhD focuses on exploring the use of Ultra-Wideband (UWB) radars for human motion analysis.
+				    </p>
+				    <p id="additional" style="display: none;">
+				        Additional information paragraph 1.
+				    </p>
+				    <p id="additional2" style="display: none;">
+				        Additional information paragraph 2.
+				    </p>
+				
+				    <ul class="actions">
+				        <li><a href="#" id="toggleButton" class="button" onclick="toggleVisibility()">Read More</a></li>
+				    </ul>
+				</section>
+				
+				<script>
+				    function toggleVisibility() {
+				        var additionalParagraph = document.getElementById('additional');
+				        var additionalParagraph2 = document.getElementById('additional2');
+				        var toggleButton = document.getElementById('toggleButton');
+				
+				        if (additionalParagraph.style.display === 'none') {
+				            additionalParagraph.style.display = 'block';
+				            additionalParagraph2.style.display = 'block';
+				            toggleButton.innerHTML = 'Read Less';
+				        } else {
+				            additionalParagraph.style.display = 'none';
+				            additionalParagraph2.style.display = 'none';
+				            toggleButton.innerHTML = 'Read More';
+				        }
+				    }
+				</script>
 
 				<!-- Two -->
 					<section id="two">
