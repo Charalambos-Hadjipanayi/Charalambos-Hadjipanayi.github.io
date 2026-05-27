@@ -26,12 +26,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // About section accordion
-document.querySelectorAll('.about-acc-toggle').forEach(toggle => {
-  toggle.addEventListener('click', () => {
-    const panel  = toggle.nextElementSibling;
-    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+document.querySelectorAll('.about-acc-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    var panel  = toggle.nextElementSibling;
+    var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    var chevron = toggle.querySelector('svg');
+
     toggle.setAttribute('aria-expanded', String(!isOpen));
-    panel.classList.toggle('open', !isOpen);
+
+    if (isOpen) {
+      panel.style.height = panel.scrollHeight + 'px';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { panel.style.height = '0'; });
+      });
+      if (chevron) chevron.style.transform = '';
+    } else {
+      panel.style.height = panel.scrollHeight + 'px';
+      panel.addEventListener('transitionend', function handler() {
+        panel.style.height = 'auto';
+        panel.removeEventListener('transitionend', handler);
+      });
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+    }
   });
 });
 
