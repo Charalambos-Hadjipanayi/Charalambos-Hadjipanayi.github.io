@@ -168,34 +168,19 @@ section { padding: 5rem 0; }
   border-top: 1px solid var(--border);
 }
 
-.info-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-.info-list li {
-  display: flex; align-items: flex-start; gap: 0.75rem;
-  font-size: 0.9rem; color: var(--muted);
+/* Compact research interests list (right column of About) */
+.interests-compact-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 0.85rem;
 }
-.info-list li .icon {
-  width: 32px; height: 32px; border-radius: 6px;
-  background: var(--teal); display: flex; align-items: center;
-  justify-content: center; flex-shrink: 0; font-size: 0.85rem;
-}
-.info-list li strong { display: block; color: var(--text); font-size: 0.88rem; }
-
-/* ── Research interests ─────────────────────────────────────────────────── */
-#research { background: var(--bg); }
-.interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
-.interest-card {
-  background: var(--card-bg); border-radius: 10px;
-  padding: 1.5rem; border: 1px solid var(--border);
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.interest-card:hover { box-shadow: 0 6px 24px rgba(14,40,65,0.1); transform: translateY(-2px); }
-.interest-icon {
-  width: 44px; height: 44px; border-radius: 10px;
+.interests-compact ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.interests-compact li { display: flex; align-items: center; gap: 0.65rem; }
+.int-icon {
+  width: 30px; height: 30px; border-radius: 7px;
   background: var(--navy); display: flex; align-items: center;
-  justify-content: center; font-size: 1.2rem; margin-bottom: 1rem;
+  justify-content: center; font-size: 0.82rem; flex-shrink: 0;
 }
-.interest-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
-.interest-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+.interests-compact li span { font-size: 0.88rem; color: var(--text); font-weight: 500; }
 
 /* ── Projects ───────────────────────────────────────────────────────────── */
 #projects { background: var(--white); }
