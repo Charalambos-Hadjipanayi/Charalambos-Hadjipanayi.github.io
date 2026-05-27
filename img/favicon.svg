@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="3" fill="#0E2841"/>
+  <text font-family="Arial, sans-serif" font-weight="800" font-size="14"
+        x="16" y="22" text-anchor="middle">
+    <tspan fill="#FFFFFF">CH</tspan><tspan fill="#E97132">.</tspan>
+  </text>
+</svg>
