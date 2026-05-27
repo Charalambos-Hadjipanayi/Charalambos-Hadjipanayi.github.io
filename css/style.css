@@ -210,58 +210,28 @@ section { padding: 5rem 0; }
 
 /* ── Videos ─────────────────────────────────────────────────────────────── */
 #videos { background: var(--bg); }
-.video-accordion { display: flex; flex-direction: column; gap: 0.75rem; }
-
-.video-item {
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.video-card {
   background: var(--white); border-radius: 12px;
   border: 1px solid var(--border); overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
-
-.video-toggle {
-  width: 100%; display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 1.5rem; gap: 1rem;
-  background: none; border: none; cursor: pointer; text-align: left;
-  transition: background 0.2s;
-}
-.video-toggle:hover { background: var(--bg); }
-.video-toggle[aria-expanded="true"] { background: var(--bg); }
-
-.video-toggle-left { display: flex; align-items: center; gap: 0.9rem; flex: 1; min-width: 0; }
-.video-toggle-left span {
-  font-size: 0.97rem; font-weight: 600; color: var(--navy);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-
-.play-badge {
-  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
-  background: #FF0000; color: white;
-  display: flex; align-items: center; justify-content: center;
-}
-.play-badge svg { width: 16px; height: 16px; margin-left: 2px; }
-
-.chevron {
-  width: 18px; height: 18px; flex-shrink: 0; color: var(--muted);
-  transition: transform 0.3s ease;
-}
-.video-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
-
-.video-panel {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-.video-panel.open { max-height: 700px; }
-
+.video-card:hover { box-shadow: 0 8px 32px rgba(14,40,65,0.12); transform: translateY(-3px); }
 .video-wrapper {
-  aspect-ratio: 16 / 9; width: 100%; position: relative;
+  position: relative; width: 100%;
+  aspect-ratio: 16 / 9;
 }
 .video-wrapper iframe {
-  position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; border: none;
 }
-.video-desc {
-  padding: 1rem 1.5rem 1.25rem;
-  font-size: 0.85rem; color: var(--muted); line-height: 1.6;
-  border-top: 1px solid var(--border);
-}
+.video-info { padding: 1.25rem 1.5rem; }
+.video-info h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.video-info p  { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
 
 /* ── Publications ───────────────────────────────────────────────────────── */
 #publications { background: var(--bg); }
