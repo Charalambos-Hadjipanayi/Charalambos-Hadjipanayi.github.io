@@ -25,6 +25,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// Video accordion
+document.querySelectorAll('.video-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const panel  = toggle.nextElementSibling;
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    panel.classList.toggle('open', !isOpen);
+
+    // Load iframe only on first expand
+    if (!isOpen) {
+      const iframe = panel.querySelector('iframe[data-src]');
+      if (iframe) {
+        iframe.src = iframe.dataset.src;
+        iframe.removeAttribute('data-src');
+      }
+    }
+  });
+});
+
 // Contact form — Google Apps Script backend
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2ncP9SqFJzuJnrOfnevWr1gxkw0ATx2cVLJoib1ZBJbS_fSTduZQiIRvsfRlGuDdu/exec';
 

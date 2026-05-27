@@ -307,39 +307,57 @@
     <h2 class="section-title">Research Videos</h2>
     <div class="section-divider"></div>
 
-    <div class="videos-grid">
+    <div class="video-accordion">
 
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/LGXetD7XGA8"
-            title="Radar-based gait analysis — Real-time demonstration"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="video-info">
-          <h3>Radar-based gait analysis — Real-time demonstration</h3>
-          <p>Live demonstration of the UWB radar gait analysis system, showing real-time micro-Doppler processing and spatiotemporal feature extraction as a participant walks in front of the sensor.</p>
+      <div class="video-item">
+        <button class="video-toggle" aria-expanded="false">
+          <div class="video-toggle-left">
+            <div class="play-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span>Visualisation of radar-based gait analysis pipeline</span>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="video-panel">
+          <div class="video-wrapper">
+            <iframe
+              data-src="https://www.youtube.com/embed/BBo7MIBcHM8"
+              title="Visualisation of radar-based gait analysis pipeline"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-desc">Step-by-step visualisation of the full signal processing pipeline: clutter suppression, STFT spectrogram generation, gait event detection, and foot trajectory extraction from radar data.</p>
         </div>
       </div>
 
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/BBo7MIBcHM8"
-            title="Radar-based gait analysis pipeline — Visualisation"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="video-info">
-          <h3>Radar-based gait analysis pipeline — Visualisation</h3>
-          <p>Step-by-step visualisation of the full signal processing pipeline: clutter suppression, STFT spectrogram generation, gait event detection, and foot trajectory extraction from radar data.</p>
+      <div class="video-item">
+        <button class="video-toggle" aria-expanded="false">
+          <div class="video-toggle-left">
+            <div class="play-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span>Radar-based gait analysis in real-time</span>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+        <div class="video-panel">
+          <div class="video-wrapper">
+            <iframe
+              data-src="https://www.youtube.com/embed/LGXetD7XGA8"
+              title="Radar-based gait analysis in real-time"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="video-desc">Live demonstration of the UWB radar gait analysis system, showing real-time micro-Doppler processing and spatiotemporal feature extraction as a participant walks in front of the sensor.</p>
         </div>
       </div>
 
