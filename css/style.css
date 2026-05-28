@@ -219,8 +219,8 @@ section { padding: 5rem 0; }
 .project-info { padding: 1rem 1.25rem 0.75rem; }
 .project-card h3 { font-size: 0.97rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0; }
 .project-card .project-tag {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--orange);
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--orange);
 }
 .project-toggle {
   margin-top: auto; width: 100%; padding: 0.55rem 1.25rem;
