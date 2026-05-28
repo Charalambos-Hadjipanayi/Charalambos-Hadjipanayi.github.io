@@ -51,6 +51,18 @@ document.querySelectorAll('.about-acc-toggle').forEach(function(toggle) {
   });
 });
 
+// Semantic Scholar live stats
+(function() {
+  var AUTHOR_ID = '2226787369';
+  fetch('https://api.semanticscholar.org/graph/v1/author/' + AUTHOR_ID + '?fields=citationCount,hIndex')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.citationCount !== undefined) document.getElementById('statCitations').textContent = d.citationCount;
+      if (d.hIndex      !== undefined) document.getElementById('statHIndex').textContent      = d.hIndex;
+    })
+    .catch(function() {}); // silently keep '—' placeholders on failure
+})();
+
 // Project card accordion
 document.querySelectorAll('.project-toggle').forEach(function(toggle) {
   toggle.addEventListener('click', function() {
