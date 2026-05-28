@@ -262,10 +262,11 @@ section { padding: 5rem 0; }
   color: var(--lightblue); font-style: normal; text-decoration: none;
 }
 .pub-doi:hover { text-decoration: underline; }
-.pub-item .pub-year {
-  float: right; font-size: 0.8rem; font-weight: 700;
-  color: var(--orange); margin-left: 1rem;
+.pub-year-heading {
+  font-size: 1rem; font-weight: 700; color: var(--orange);
+  margin: 2rem 0 0.6rem;
 }
+.pub-year-heading:first-child { margin-top: 0; }
 .pub-note {
   text-align: center; color: var(--muted); font-size: 0.88rem;
   margin-top: 1.5rem; padding: 1rem;
