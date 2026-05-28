@@ -258,6 +258,10 @@ section { padding: 5rem 0; }
 .pub-item .pub-venue {
   font-size: 0.8rem; color: var(--teal); font-style: italic;
 }
+.pub-doi {
+  color: var(--lightblue); font-style: normal; text-decoration: none;
+}
+.pub-doi:hover { text-decoration: underline; }
 .pub-item .pub-year {
   float: right; font-size: 0.8rem; font-weight: 700;
   color: var(--orange); margin-left: 1rem;
