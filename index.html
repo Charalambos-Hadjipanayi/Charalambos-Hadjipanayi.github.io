@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -222,117 +222,148 @@
 
     <div class="projects-grid">
 
+      <!-- Project 1 -->
       <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon" style="background:#E97132;">🚀</div>
-          <div>
-            <div class="project-tag">Spinout</div>
-            <h3>Zoiva — Contactless Health Monitoring</h3>
+        <!-- Replace with <img src="img/projects/zoiva.jpg" alt="Zoiva" class="project-img"> once image is ready -->
+        <div class="project-img-placeholder" style="background:#E97132;">🚀</div>
+        <div class="project-info">
+          <div class="project-tag">Spinout</div>
+          <h3>Zoiva — Contactless Health Monitoring</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Co-founder of Zoiva, a digital health spinout from Imperial College London. Developing AI-powered contactless radar sensors for continuous monitoring of movement, behaviour, and physiological signals in real-world environments. Two patents filed; £660k non-dilutive funding secured; pre-seed raise planned for 2026.</p>
+            <div class="project-chips">
+              <span class="chip">Radar</span><span class="chip">AI</span><span class="chip">Digital Health</span><span class="chip">Parkinson's</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Website →</a>
+            </div>
           </div>
-        </div>
-        <div class="project-body">
-          <p>Co-founder of Zoiva, a digital health spinout from Imperial College London. Developing AI-powered contactless radar sensors for continuous monitoring of movement, behaviour, and physiological signals in real-world environments. Two patents filed; £660k non-dilutive funding secured; pre-seed raise planned for 2026.</p>
-        </div>
-        <div class="project-footer">
-          <span class="chip">Radar</span>
-          <span class="chip">AI</span>
-          <span class="chip">Digital Health</span>
-          <span class="chip">Parkinson's</span>
         </div>
       </div>
 
+      <!-- Project 2 -->
       <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon" style="background:#156082;">🧪</div>
-          <div>
-            <div class="project-tag">Research</div>
-            <h3>Parkinson's Disease Gait Monitoring</h3>
+        <div class="project-img-placeholder" style="background:#156082;">🧪</div>
+        <div class="project-info">
+          <div class="project-tag">Research</div>
+          <h3>Parkinson's Disease Gait Monitoring</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>End-to-end pipeline for radar-based PD gait analysis: clutter suppression, STFT spectrogram generation, gait event detection, and spatiotemporal feature extraction. Classification pipeline distinguishing PD from healthy cohorts using data from multi-radar UWB trials.</p>
+            <div class="project-chips">
+              <span class="chip">UWB Radar</span><span class="chip">MATLAB</span><span class="chip">XeThru</span><span class="chip">Signal Processing</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+            </div>
           </div>
-        </div>
-        <div class="project-body">
-          <p>End-to-end pipeline for radar-based PD gait analysis: clutter suppression, STFT spectrogram generation, gait event detection, and spatiotemporal feature extraction. Classification pipeline distinguishing PD from healthy cohorts using data from multi-radar UWB trials.</p>
-        </div>
-        <div class="project-footer">
-          <span class="chip">UWB Radar</span>
-          <span class="chip">MATLAB</span>
-          <span class="chip">XeThru</span>
-          <span class="chip">Signal Processing</span>
         </div>
       </div>
 
+      <!-- Project 3 -->
       <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon" style="background:#0E2841;">👥</div>
-          <div>
-            <div class="project-tag">Research</div>
-            <h3>Multi-Person Radar Tracking</h3>
+        <div class="project-img-placeholder" style="background:#0E2841;">👥</div>
+        <div class="project-info">
+          <div class="project-tag">Research</div>
+          <h3>Multi-Person Radar Tracking</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Multi-target tracking system combining Kalman filtering with JPDA and Hungarian algorithm data association. Simultaneously tracks multiple individuals from a single radar, with simulated Boulic-Thalmann synthetic human models for algorithm validation.</p>
+            <div class="project-chips">
+              <span class="chip">Kalman Filter</span><span class="chip">JPDA</span><span class="chip">FMCW</span><span class="chip">MATLAB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+            </div>
           </div>
-        </div>
-        <div class="project-body">
-          <p>Multi-target tracking system combining Kalman filtering with JPDA and Hungarian algorithm data association. Simultaneously tracks multiple individuals from a single radar, with simulated Boulic-Thalmann synthetic human models for algorithm validation.</p>
-        </div>
-        <div class="project-footer">
-          <span class="chip">Kalman Filter</span>
-          <span class="chip">JPDA</span>
-          <span class="chip">FMCW</span>
-          <span class="chip">MATLAB</span>
         </div>
       </div>
 
+      <!-- Project 4 -->
       <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon" style="background:#0F9ED5;">🎮</div>
-          <div>
-            <div class="project-tag">Demonstration</div>
-            <h3>GERF Radar Pong</h3>
+        <div class="project-img-placeholder" style="background:#0F9ED5;">🎮</div>
+        <div class="project-info">
+          <div class="project-tag">Demonstration</div>
+          <h3>GERF Radar Pong</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Real-time interactive demonstration system using a UWB radar for contactless hand position tracking to control a Pong game. Developed for public engagement and outreach, showcasing real-world radar sensing capabilities in an intuitive, interactive format.</p>
+            <div class="project-chips">
+              <span class="chip">UWB Radar</span><span class="chip">Real-Time</span><span class="chip">MATLAB</span><span class="chip">Public Engagement</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+            </div>
           </div>
-        </div>
-        <div class="project-body">
-          <p>Real-time interactive demonstration system using a UWB radar for contactless hand position tracking to control a Pong game. Developed for public engagement and outreach, showcasing real-world radar sensing capabilities in an intuitive, interactive format.</p>
-        </div>
-        <div class="project-footer">
-          <span class="chip">UWB Radar</span>
-          <span class="chip">Real-Time</span>
-          <span class="chip">MATLAB</span>
-          <span class="chip">Public Engagement</span>
         </div>
       </div>
 
+      <!-- Project 5 -->
       <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon" style="background:#196B24;">❤️</div>
-          <div>
-            <div class="project-tag">Challenge</div>
-            <h3>IEEE Radar Heart Rate Challenge</h3>
+        <div class="project-img-placeholder" style="background:#196B24;">❤️</div>
+        <div class="project-info">
+          <div class="project-tag">Challenge</div>
+          <h3>IEEE Radar Heart Rate Challenge</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Participation in the IEEE Radar Heart Rate Estimation Challenge. Developed signal processing algorithms for non-contact heart rate extraction from radar backscatter data, combining micro-Doppler analysis with physiological signal filtering techniques.</p>
+            <div class="project-chips">
+              <span class="chip">Heart Rate</span><span class="chip">Radar</span><span class="chip">IEEE</span><span class="chip">Signal Processing</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+            </div>
           </div>
-        </div>
-        <div class="project-body">
-          <p>Participation in the IEEE Radar Heart Rate Estimation Challenge. Developed signal processing algorithms for non-contact heart rate extraction from radar backscatter data, combining micro-Doppler analysis with physiological signal filtering techniques.</p>
-        </div>
-        <div class="project-footer">
-          <span class="chip">Heart Rate</span>
-          <span class="chip">Radar</span>
-          <span class="chip">IEEE</span>
-          <span class="chip">Signal Processing</span>
         </div>
       </div>
 
+      <!-- Project 6 -->
       <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon" style="background:#A02B93;">📊</div>
-          <div>
-            <div class="project-tag">Research</div>
-            <h3>60 GHz FMCW Radar Development</h3>
+        <div class="project-img-placeholder" style="background:#A02B93;">📊</div>
+        <div class="project-info">
+          <div class="project-tag">Research</div>
+          <h3>60 GHz FMCW Radar Development</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Integration and evaluation of the Infineon BGT60TR13C 60 GHz FMCW radar sensor for health monitoring applications. Includes SDK integration, data recording pipelines, and Boulic-Thalmann simulations for synthetic human gait modelling.</p>
+            <div class="project-chips">
+              <span class="chip">60 GHz FMCW</span><span class="chip">Infineon</span><span class="chip">Simulation</span><span class="chip">Python</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+            </div>
           </div>
-        </div>
-        <div class="project-body">
-          <p>Integration and evaluation of the Infineon BGT60TR13C 60 GHz FMCW radar sensor for health monitoring applications. Includes SDK integration, data recording pipelines, and Boulic-Thalmann simulations for synthetic human gait modelling.</p>
-        </div>
-        <div class="project-footer">
-          <span class="chip">60 GHz FMCW</span>
-          <span class="chip">Infineon</span>
-          <span class="chip">Simulation</span>
-          <span class="chip">Python</span>
         </div>
       </div>
 

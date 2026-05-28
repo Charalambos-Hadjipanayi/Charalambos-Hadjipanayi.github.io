@@ -51,6 +51,32 @@ document.querySelectorAll('.about-acc-toggle').forEach(function(toggle) {
   });
 });
 
+// Project card accordion
+document.querySelectorAll('.project-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    var panel   = toggle.nextElementSibling;
+    var isOpen  = toggle.getAttribute('aria-expanded') === 'true';
+    var chevron = toggle.querySelector('svg');
+
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+
+    if (isOpen) {
+      panel.style.height = panel.scrollHeight + 'px';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { panel.style.height = '0'; });
+      });
+      if (chevron) chevron.style.transform = '';
+    } else {
+      panel.style.height = panel.scrollHeight + 'px';
+      panel.addEventListener('transitionend', function handler() {
+        panel.style.height = 'auto';
+        panel.removeEventListener('transitionend', handler);
+      });
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+    }
+  });
+});
+
 // Contact form — Google Apps Script backend
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2ncP9SqFJzuJnrOfnevWr1gxkw0ATx2cVLJoib1ZBJbS_fSTduZQiIRvsfRlGuDdu/exec';
 
