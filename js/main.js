@@ -112,6 +112,38 @@ document.querySelectorAll('.skills-acc-toggle').forEach(function(toggle) {
   });
 });
 
+// Highlights carousel
+(function () {
+  var track = document.getElementById('highlightsTrack');
+  var dots  = document.querySelectorAll('#highlightsDots .carousel-dot');
+  var prev  = document.querySelector('.carousel-prev');
+  var next  = document.querySelector('.carousel-next');
+  if (!track || !prev || !next) return;
+
+  var total   = track.children.length;
+  var current = 0;
+  var timer;
+
+  function goTo(n) {
+    current = (n + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function () { goTo(current + 1); }, 15000);
+  }
+
+  prev.addEventListener('click', function () { goTo(current - 1); resetTimer(); });
+  next.addEventListener('click', function () { goTo(current + 1); resetTimer(); });
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () { goTo(+d.dataset.idx); resetTimer(); });
+  });
+
+  resetTimer();
+}());
+
 // Contact form — Google Apps Script backend
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2ncP9SqFJzuJnrOfnevWr1gxkw0ATx2cVLJoib1ZBJbS_fSTduZQiIRvsfRlGuDdu/exec';
 
