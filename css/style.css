@@ -336,21 +336,21 @@ section { padding: 5rem 0; }
   will-change: transform;
 }
 .carousel-slide {
-  min-width: 100%; display: flex; background: var(--white);
+  min-width: 100%; display: flex; flex-direction: column; background: var(--white);
   border-radius: 14px; overflow: hidden;
   box-shadow: 0 2px 20px rgba(14,40,65,0.10);
   border: 1px solid var(--border);
 }
 .carousel-slide-img {
-  width: 52%; aspect-ratio: 4/3; object-fit: cover; display: block; flex-shrink: 0;
+  width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
 }
 .carousel-slide-placeholder {
-  width: 52%; aspect-ratio: 4/3; display: flex; align-items: center;
-  justify-content: center; font-size: 3.5rem; flex-shrink: 0;
+  width: 100%; aspect-ratio: 16/9; display: flex; align-items: center;
+  justify-content: center; font-size: 3.5rem;
 }
 .carousel-slide-info {
-  flex: 1; padding: 2rem 2.5rem;
-  display: flex; flex-direction: column; justify-content: center; gap: 0.5rem;
+  padding: 1.5rem 2rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
 }
 .carousel-slide-date {
   font-size: 0.73rem; font-weight: 700; letter-spacing: 0.12em;
@@ -478,9 +478,6 @@ footer {
   .contact-bottom { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .contact-map { display: none; }
-  .carousel-slide { flex-direction: column; }
-  .carousel-slide-img,
-  .carousel-slide-placeholder { width: 100%; aspect-ratio: 16/9; }
-  .carousel-slide-info { padding: 1.25rem 1.5rem; }
+  .carousel-slide-info { padding: 1rem 1.25rem; }
   .carousel-btn { width: 34px; height: 34px; font-size: 0.85rem; }
 }
