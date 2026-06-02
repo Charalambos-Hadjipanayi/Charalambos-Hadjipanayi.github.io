@@ -132,7 +132,7 @@ document.querySelectorAll('.skills-acc-toggle').forEach(function(toggle) {
 
   function resetTimer() {
     clearInterval(timer);
-    timer = setInterval(function () { goTo(current + 1); }, 15000);
+    timer = setInterval(function () { goTo(current + 1); }, 20000);
   }
 
   prev.addEventListener('click', function () { goTo(current - 1); resetTimer(); });
