@@ -136,15 +136,16 @@ fetch('/data/stats.json')
   })
   .catch(function () {});
 
-// ── Hero canvas — 3D perspective wave grid ────────────────────────────────
+// ── Hero canvas — 3D perspective wave surface ─────────────────────────────
 (function () {
   var canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
 
-  var ctx = canvas.getContext('2d');
-  var dpr = window.devicePixelRatio || 1;
-  var t   = 0;
+  var ctx  = canvas.getContext('2d');
+  var dpr  = window.devicePixelRatio || 1;
+  var t    = 0;
   var raf;
+  var COLS = 30, ROWS = 30;
 
   function resize() {
     var W = canvas.parentElement.offsetWidth;
@@ -165,48 +166,65 @@ fetch('/data/stats.json')
 
     ctx.clearRect(0, 0, W, H);
 
-    var horizon = H * 0.40;
+    var horizonY = H * 0.42;   // vanishing point Y
+    var baseY    = H * 1.02;   // near edge of grid (just below screen bottom)
+    var waveAmp  = H * 0.14;   // max wave height at near edge
 
-    // Horizontal sine-wave lines with perspective spacing
-    var numH = 26;
-    for (var i = 1; i <= numH; i++) {
-      var p    = i / numH;
-      var y0   = horizon + (H - horizon) * Math.pow(p, 1.5);
-      var amp  = 60 * p * p;
-      var freq = 0.004 + 0.002 * (1 - p);
-      var spd  = 0.35 + 0.15 * (1 - p);
-      var lw   = 0.5 + 1.6 * p;
-      var col  = i % 2 === 0
-        ? 'rgba(21,96,130,'  + (0.04 + 0.22 * p) + ')'
-        : 'rgba(15,158,213,' + (0.03 + 0.15 * p) + ')';
+    // ── Pre-compute projected grid points ──────────────────────────────
+    // r=0: near (bottom of screen), r=ROWS: far (horizon)
+    var pts = [];
+    for (var r = 0; r <= ROWS; r++) {
+      pts[r] = [];
+      var rf    = r / ROWS;                   // 0 = near, 1 = far
+      var persp = 1 / (1 + rf * 7);          // perspective scale
 
-      ctx.beginPath();
-      ctx.strokeStyle = col;
-      ctx.lineWidth   = lw;
+      for (var c = 0; c <= COLS; c++) {
+        var gx = c / COLS - 0.5;             // -0.5 … +0.5
 
-      for (var x = 0; x <= W; x += 4) {
-        var wy = y0 + amp * Math.sin(x * freq + t * spd + i * 0.28);
-        x === 0 ? ctx.moveTo(x, wy) : ctx.lineTo(x, wy);
+        // Two-component wave gives natural ocean-surface appearance
+        var wz = Math.sin(gx * 9  + rf * 5  + t       ) * 0.58
+               + Math.sin(gx * 4  - rf * 7  + t * 1.3 ) * 0.42;
+
+        pts[r][c] = {
+          x:     W * 0.5 + gx * W * 1.25 * persp,
+          y:     horizonY + (baseY - horizonY) * (1 - rf) - wz * waveAmp * persp,
+          persp: persp
+        };
       }
-      ctx.stroke();
     }
 
-    // Vertical lines converging to central vanishing point
-    var numV = 22;
-    var vpx  = W * 0.5;
-    for (var j = 0; j <= numV; j++) {
-      var bx   = W * (j / numV);
-      var tx   = vpx + (bx - vpx) * 0.06;
-      var dist = Math.abs(j / numV - 0.5) * 2;
+    // ── 1. Column lines — depth direction (back to front) ──────────────
+    // These give the "going-away" lines that sell the 3D depth
+    for (var c2 = 0; c2 <= COLS; c2++) {
+      var edgeDist = Math.abs(c2 / COLS - 0.5) * 2; // 0 centre, 1 edge
       ctx.beginPath();
-      ctx.strokeStyle = 'rgba(15,158,213,' + (0.022 + 0.055 * dist) + ')';
-      ctx.lineWidth   = 0.6;
-      ctx.moveTo(tx, horizon);
-      ctx.lineTo(bx, H);
+      for (var r2 = ROWS; r2 >= 0; r2--) {
+        var p2 = pts[r2][c2];
+        r2 === ROWS ? ctx.moveTo(p2.x, p2.y) : ctx.lineTo(p2.x, p2.y);
+      }
+      ctx.strokeStyle = 'rgba(15,158,213,' + (0.035 + 0.11 * edgeDist) + ')';
+      ctx.lineWidth   = 0.35 + 0.8 * edgeDist;
       ctx.stroke();
     }
 
-    t  += 0.015;
+    // ── 2. Row lines — wave crests (far → near = painter's algorithm) ──
+    // Drawn front-to-back so near rows paint over far rows
+    for (var r3 = ROWS; r3 >= 0; r3--) {
+      var persp3 = pts[r3][0].persp;
+      ctx.beginPath();
+      for (var c3 = 0; c3 <= COLS; c3++) {
+        var p3 = pts[r3][c3];
+        c3 === 0 ? ctx.moveTo(p3.x, p3.y) : ctx.lineTo(p3.x, p3.y);
+      }
+      var a3 = 0.04 + 0.34 * persp3;
+      ctx.strokeStyle = r3 % 2 === 0
+        ? 'rgba(21,96,130,'  + a3 + ')'
+        : 'rgba(15,158,213,' + (a3 * 0.88) + ')';
+      ctx.lineWidth = 0.4 + 2.4 * persp3;
+      ctx.stroke();
+    }
+
+    t  += 0.011;
     raf = requestAnimationFrame(draw);
   }
 
