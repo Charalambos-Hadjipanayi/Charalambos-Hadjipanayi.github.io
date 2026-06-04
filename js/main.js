@@ -1,11 +1,12 @@
 // ── Active nav: highlight link matching the current page ──────────────────
 (function () {
-  var page = window.location.pathname.split('/').pop() || 'index.html';
+  var path = window.location.pathname;
+  var page = path.split('/').pop() || '';
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     var href = a.getAttribute('href') || '';
-    if (href.indexOf('#') !== -1) return; // skip anchor-only links (e.g. index.html#cv)
+    if (href.indexOf('#') !== -1) return;
     if (href === page) a.classList.add('active');
-    if (page === '' && href === 'index.html') a.classList.add('active');
+    if ((page === '' || page === 'index.html') && (href === '/' || href === 'index.html')) a.classList.add('active');
   });
 }());
 
