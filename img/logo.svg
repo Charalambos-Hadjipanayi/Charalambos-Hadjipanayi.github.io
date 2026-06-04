@@ -1,39 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="CH.">
 
-  <!-- ── C: thick rounded arc, centre (58,72), radius 38 ──
-       Terminals cut flat at y=46 and y=98 (symmetric, horizontal)
-       x of terminal = 58 + sqrt(38²−26²) ≈ 86                   -->
-  <path d="M 86,46 A 38,38 0 1,0 86,98"
-        fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="butt"/>
+  <!-- Navy background -->
+  <rect width="200" height="200" fill="#0E2841"/>
 
-  <!-- ── H: left full-height bar + crossbar at 35% + right bar below crossbar only ── -->
-  <!-- Left vertical: full height, y=46→98 -->
-  <rect x="100" y="46" width="14" height="52" rx="2" fill="#FFFFFF"/>
-  <!-- Crossbar: at y=64 (35% down from y=46 over 52px height) -->
-  <rect x="100" y="64" width="54" height="11" rx="1.5" fill="#FFFFFF"/>
-  <!-- Right vertical: crossbar → bottom only -->
-  <rect x="140" y="64" width="14" height="34" rx="2" fill="#FFFFFF"/>
+  <!-- ── C: thick rounded arc ──
+       Centre (55,65), radius 44, terminals at y=30 and y=100
+       x_terminal = 55 + sqrt(44²−35²) = 55 + 26.7 ≈ 82              -->
+  <path d="M 82,30 A 44,44 0 1,0 82,100"
+        fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="butt"/>
+
+  <!-- ── H ──
+       Same height band y=30→100 (70 px).
+       Left bar:  full height.
+       Crossbar:  at y=51 (30 % down).
+       Right bar: from crossbar to bottom only.                        -->
+  <rect x="97"  y="30" width="16" height="70" rx="2" fill="#FFFFFF"/>
+  <rect x="97"  y="51" width="58" height="13" rx="2" fill="#FFFFFF"/>
+  <rect x="139" y="51" width="16" height="49" rx="2" fill="#FFFFFF"/>
 
   <!-- ── Orange square dot ── -->
-  <rect x="156" y="87" width="12" height="12" fill="#E97132"/>
+  <rect x="157" y="88" width="14" height="14" fill="#E97132"/>
 
   <!-- ── Baseline ── -->
-  <line x1="12" y1="120" x2="188" y2="120"
-        stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="12" y1="122" x2="188" y2="122"
+        stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
 
-  <!-- ── Damped waveform: large first peak, decaying amplitude ──
-       Baseline y=120.  Peak 1: y=91 (+29).  Trough 1: y=143 (−23).
-       Peak 2: y=105 (+15). Trough 2: y=130 (−10). Tiny ripple then out. -->
-  <path d="M 12,120
-           C 24,120 26,91  38,91
-           C 50,91  52,120 64,120
-           C 76,120 78,143 90,143
-           C 102,143 104,120 116,120
-           C 128,120 130,105 142,105
-           C 154,105 156,120 165,120
-           C 172,120 173,130 179,130
-           C 185,130 187,120 188,120"
-        stroke="#FFFFFF" stroke-width="2.5"
+  <!-- ── Damped waveform ──
+       Baseline y=122.  Peak 1: −32 (y=90). Trough 1: +26 (y=148).
+       Peak 2: −18 (y=104). Trough 2: +12 (y=134). Tiny ripple.      -->
+  <path d="M 12,122
+           C 24,122 26,90  38,90
+           C 50,90  52,122 64,122
+           C 76,122 78,148 90,148
+           C 102,148 104,122 116,122
+           C 128,122 130,104 142,104
+           C 154,104 156,122 166,122
+           C 172,122 173,134 179,134
+           C 185,134 187,122 188,122"
+        stroke="#FFFFFF" stroke-width="3"
         fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 
 </svg>
