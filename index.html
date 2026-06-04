@@ -27,9 +27,8 @@
 
 <!-- ── Hero ───────────────────────────────────────────────────────────── -->
 <section id="hero">
-  <div class="hero-blob hero-blob-1"></div>
-  <div class="hero-blob hero-blob-2"></div>
-  <div class="hero-blob hero-blob-3"></div>
+  <canvas id="heroCanvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;"></canvas>
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 65% 95% at 38% 50%,rgba(14,40,65,0.93) 0%,rgba(14,40,65,0.72) 35%,rgba(14,40,65,0.22) 62%,transparent 76%);"></div>
   <div class="container">
     <div class="hero-inner">
 
@@ -355,6 +354,6 @@
   <p style="margin-top:0.75rem;"><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:#3A4A5A;font-size:0.78rem;text-decoration:none;" onmouseover="this.style.color='#8AAABB'" onmouseout="this.style.color='#3A4A5A'">↑ Back to top</a></p>
 </footer>
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>
