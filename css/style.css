@@ -576,12 +576,7 @@ footer {
   .carousel-slide-date { font-size: 0.62rem; }
   .carousel-slide-title { font-size: 0.92rem; }
   .carousel-slide-caption { font-size: 0.78rem; line-height: 1.55; }
-  /* Overlay nav buttons so the 16:9 image spans full container width */
-  .carousel-outer { gap: 0; position: relative; }
-  .carousel-btn {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    z-index: 5; width: 32px; height: 32px; font-size: 0.8rem; opacity: 0.92;
-  }
-  .carousel-prev { left: 6px; }
-  .carousel-next { right: 6px; }
+  /* Hide arrows on phones — swipe instead — so the 16:9 image spans full width */
+  .carousel-outer { gap: 0; }
+  .carousel-btn { display: none; }
 }

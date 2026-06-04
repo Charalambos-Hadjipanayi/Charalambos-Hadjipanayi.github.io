@@ -144,6 +144,26 @@ document.querySelectorAll('.skills-acc-toggle').forEach(function (toggle) {
     d.addEventListener('click', function () { goTo(+d.dataset.idx); resetTimer(); });
   });
 
+  // Touch swipe support (phones/tablets)
+  var startX = 0, startY = 0, swiping = false;
+  track.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    swiping = true;
+  }, { passive: true });
+
+  track.addEventListener('touchend', function (e) {
+    if (!swiping) return;
+    swiping = false;
+    var dx = e.changedTouches[0].clientX - startX;
+    var dy = e.changedTouches[0].clientY - startY;
+    // Only treat as a swipe if mostly horizontal and past threshold
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      goTo(current + (dx < 0 ? 1 : -1));
+      resetTimer();
+    }
+  }, { passive: true });
+
   resetTimer();
 }());
 
