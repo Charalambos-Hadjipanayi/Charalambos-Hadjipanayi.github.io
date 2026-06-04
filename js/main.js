@@ -1,23 +1,20 @@
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-      if (link) link.classList.add('active');
-    }
+// ── Active nav: highlight link matching the current page ──────────────────
+(function () {
+  var page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('#') !== -1) return; // skip anchor-only links (e.g. index.html#cv)
+    if (href === page) a.classList.add('active');
+    if (page === '' && href === 'index.html') a.classList.add('active');
   });
-}, { threshold: 0.35 });
+}());
 
-sections.forEach(s => observer.observe(s));
-
-// Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+// ── Smooth scroll for same-page anchor links ──────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    var href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    var target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
@@ -25,54 +22,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// About section accordion
-document.querySelectorAll('.about-acc-toggle').forEach(function(toggle) {
-  toggle.addEventListener('click', function() {
-    var panel  = toggle.nextElementSibling;
-    var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-    var chevron = toggle.querySelector('svg');
-
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-
-    if (isOpen) {
-      panel.style.height = panel.scrollHeight + 'px';
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() { panel.style.height = '0'; });
-      });
-      if (chevron) chevron.style.transform = '';
-    } else {
-      panel.style.height = panel.scrollHeight + 'px';
-      panel.addEventListener('transitionend', function handler() {
-        panel.style.height = 'auto';
-        panel.removeEventListener('transitionend', handler);
-      });
-      if (chevron) chevron.style.transform = 'rotate(180deg)';
-    }
-  });
-});
-
-// Google Scholar stats — served from data/stats.json, refreshed weekly by GitHub Actions
-fetch('/data/stats.json')
-  .then(function(r) { return r.json(); })
-  .then(function(d) {
-    if (d.citations !== undefined) document.getElementById('statCitations').textContent = d.citations;
-    if (d.hindex    !== undefined) document.getElementById('statHIndex').textContent    = d.hindex;
-  })
-  .catch(function() {});
-
-// Project card accordion
-document.querySelectorAll('.project-toggle').forEach(function(toggle) {
-  toggle.addEventListener('click', function() {
+// ── About section accordion ───────────────────────────────────────────────
+document.querySelectorAll('.about-acc-toggle').forEach(function (toggle) {
+  toggle.addEventListener('click', function () {
     var panel   = toggle.nextElementSibling;
     var isOpen  = toggle.getAttribute('aria-expanded') === 'true';
     var chevron = toggle.querySelector('svg');
-
     toggle.setAttribute('aria-expanded', String(!isOpen));
-
     if (isOpen) {
       panel.style.height = panel.scrollHeight + 'px';
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() { panel.style.height = '0'; });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { panel.style.height = '0'; });
       });
       if (chevron) chevron.style.transform = '';
     } else {
@@ -86,19 +46,17 @@ document.querySelectorAll('.project-toggle').forEach(function(toggle) {
   });
 });
 
-// Skills accordion
-document.querySelectorAll('.skills-acc-toggle').forEach(function(toggle) {
-  toggle.addEventListener('click', function() {
+// ── Project card accordion ────────────────────────────────────────────────
+document.querySelectorAll('.project-toggle').forEach(function (toggle) {
+  toggle.addEventListener('click', function () {
     var panel   = toggle.nextElementSibling;
     var isOpen  = toggle.getAttribute('aria-expanded') === 'true';
     var chevron = toggle.querySelector('svg');
-
     toggle.setAttribute('aria-expanded', String(!isOpen));
-
     if (isOpen) {
       panel.style.height = panel.scrollHeight + 'px';
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() { panel.style.height = '0'; });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { panel.style.height = '0'; });
       });
       if (chevron) chevron.style.transform = '';
     } else {
@@ -112,7 +70,31 @@ document.querySelectorAll('.skills-acc-toggle').forEach(function(toggle) {
   });
 });
 
-// Highlights carousel
+// ── Skills accordion ──────────────────────────────────────────────────────
+document.querySelectorAll('.skills-acc-toggle').forEach(function (toggle) {
+  toggle.addEventListener('click', function () {
+    var panel   = toggle.nextElementSibling;
+    var isOpen  = toggle.getAttribute('aria-expanded') === 'true';
+    var chevron = toggle.querySelector('svg');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    if (isOpen) {
+      panel.style.height = panel.scrollHeight + 'px';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { panel.style.height = '0'; });
+      });
+      if (chevron) chevron.style.transform = '';
+    } else {
+      panel.style.height = panel.scrollHeight + 'px';
+      panel.addEventListener('transitionend', function handler() {
+        panel.style.height = 'auto';
+        panel.removeEventListener('transitionend', handler);
+      });
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+    }
+  });
+});
+
+// ── Highlights carousel ───────────────────────────────────────────────────
 (function () {
   var track = document.getElementById('highlightsTrack');
   var dots  = document.querySelectorAll('#highlightsDots .carousel-dot');
@@ -144,27 +126,35 @@ document.querySelectorAll('.skills-acc-toggle').forEach(function(toggle) {
   resetTimer();
 }());
 
-// Contact form — Google Apps Script backend
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2ncP9SqFJzuJnrOfnevWr1gxkw0ATx2cVLJoib1ZBJbS_fSTduZQiIRvsfRlGuDdu/exec';
+// ── Google Scholar stats ──────────────────────────────────────────────────
+fetch('/data/stats.json')
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    var c = document.getElementById('statCitations');
+    var h = document.getElementById('statHIndex');
+    if (c && d.citations !== undefined) c.textContent = d.citations;
+    if (h && d.hindex    !== undefined) h.textContent = d.hindex;
+  })
+  .catch(function () {});
 
-const contactForm = document.getElementById('contactForm');
+// ── Contact form — Google Apps Script backend ─────────────────────────────
+var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2ncP9SqFJzuJnrOfnevWr1gxkw0ATx2cVLJoib1ZBJbS_fSTduZQiIRvsfRlGuDdu/exec';
+
+var contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-
-    const btn      = document.getElementById('cfSubmit');
-    const response = document.getElementById('cfResponse');
-    const payload  = {
+    var btn      = document.getElementById('cfSubmit');
+    var response = document.getElementById('cfResponse');
+    var payload  = {
       name:    document.getElementById('cf-name').value.trim(),
       email:   document.getElementById('cf-email').value.trim(),
       message: document.getElementById('cf-message').value.trim()
     };
-
     btn.disabled    = true;
     btn.textContent = 'Sending…';
-    response.className = '';
+    response.className   = '';
     response.textContent = '';
-
     try {
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
@@ -178,7 +168,6 @@ if (contactForm) {
       response.className   = 'form-error';
       response.textContent = 'Something went wrong. Please email me directly.';
     }
-
     btn.disabled    = false;
     btn.textContent = 'Send Message';
   });

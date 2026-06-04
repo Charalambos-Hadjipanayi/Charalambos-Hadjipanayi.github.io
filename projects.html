@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Charalambos Hadjipanayi</title>
+  <meta name="description" content="Research projects and video demonstrations by Charalambos Hadjipanayi — radar-based gait analysis, interactive sensing systems, and biomedical signal processing." />
+  <link rel="canonical" href="https://charalambos-hadjipanayi.github.io/projects.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo" style="color:#FFFFFF;text-decoration:none;">CH<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="contact.html">Contact Me</a></li>
+    <li><a href="index.html#cv">CV</a></li>
+  </ul>
+</nav>
+
+<!-- ── Projects ───────────────────────────────────────────────────────── -->
+<section id="projects" style="background:#F7F9FB;">
+  <div class="container">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="section-divider"></div>
+
+    <div class="projects-grid">
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <img src="img/projects/pong_2.png" alt="GERF Radar Pong" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Apr 2026 – Jun 2026</div>
+          <h3>GERF Radar Pong: Contactless UWB Radar-Controlled Game</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Real-time interactive game developed for public engagement at Imperial College London and the UK Dementia Research Institute Care Research &amp; Technology Centre. A commercial UWB X4 radar sensor tracks the player's torso distance at 500 frames/second, mapping position directly to paddle movement — no controllers, cameras, or wearables required. Radar backscatter is processed using STFT-based Range–Doppler analysis with real-time peak detection.</p>
+            <p>Features progressive difficulty scaling: ball speed and count increase with hits, paddle height shrinks, and special bonus balls and combo multipliers are introduced. Designed to make radar sensing technology tangible and accessible to public audiences, while demonstrating its potential for contactless human–computer interaction and health monitoring applications.</p>
+            <div class="project-links">
+              <a href="https://www.youtube.com/watch?v=ITlT-8VbEvE" class="project-link" target="_blank" rel="noopener">Demo Video →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-img-placeholder" style="background:#156082;">🧪</div>
+        <div class="project-info">
+          <div class="project-tag">2021 – 2024</div>
+          <h3>Parkinson's Disease Gait Monitoring</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>End-to-end pipeline for radar-based PD gait analysis: clutter suppression, STFT spectrogram generation, gait event detection, and spatiotemporal feature extraction. Classification pipeline distinguishing PD from healthy cohorts using data from multi-radar UWB trials.</p>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project arXiv 2601 -->
+      <div class="project-card">
+        <img src="img/projects/FMCW_UWB.png" alt="Unified Gait Analysis Across UWB and FMCW Radars" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">May 2025 – Jan 2026</div>
+          <h3>Unified Gait Analysis Across UWB and FMCW Radars</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Applied and validated the radar-based gait analysis framework previously proposed in Hadjipanayi et al. (IEEE TBME, 2024) across two heterogeneous radar modalities — impulse-radio ultra-wideband (IR-UWB) and frequency-modulated continuous-wave (FMCW) — to assess its generalisability in extracting spatiotemporal parameters without technology-specific tuning. The framework was evaluated using collocated radar systems operating under identical conditions with ten healthy participants performing overground walking trials.</p>
+            <p>Introduced a technology-independent walking segment identification method enabling consistent gait event detection across radar modalities. Extracted parameters — stride time, stride length, walking speed, swing time, and stance time — were validated against gold-standard optical motion capture using Pearson correlation, Bland–Altman, and intraclass correlation coefficient (ICC) analyses.</p>
+            <p>Both radar modalities achieved 85–98% accuracy with inter-modality differences below 4.1%, demonstrating equivalent performance across all parameters. Results support the feasibility of a unified processing framework deployable across diverse radar hardware, advancing towards modality-independent radar platforms for continuous gait monitoring.</p>
+            <div class="project-links">
+              <a href="https://doi.org/10.48550/arXiv.2601.04415" class="project-link" target="_blank" rel="noopener">Paper →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project EMBC -->
+      <div class="project-card">
+        <img src="img/projects/EMBC.jpg" alt="Radar-Based Asymmetric Gait Analysis" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jan 2023 – Jan 2024</div>
+          <h3>Radar-Based Asymmetric Gait Analysis Using UWB Sensors</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Investigated the use of commercially available UWB radar sensors for detecting and quantifying gait asymmetries during overground locomotion. An adjustable knee brace was applied to simulate five levels of gait impairment in 10 able-bodied participants during a 6-metre walking task. Six XeThru X4M03 UWB radars captured backscattered signals for joint Range–Doppler–Time (RDT) analysis.</p>
+            <p>Developed a computationally efficient signal processing framework to extract seven spatiotemporal gait parameters from the multi-radar RDT representation. Gait asymmetry was quantified via the symmetry ratio of step times. Validated against gold-standard optical motion capture, the system achieved 88.2–98.8% accuracy across all parameters, and 95.6 ± 2.8% accuracy in capturing step time symmetry ratios — sufficient to distinguish between different gait impairment levels.</p>
+            <p>Demonstrated the feasibility of UWB radar for unobtrusive, contactless detection of gait asymmetries during natural overground walking, with direct relevance to in-home monitoring of frailty biomarkers and neurological or musculoskeletal conditions.</p>
+            <div class="project-links">
+              <a href="https://doi.org/10.1109/EMBC53108.2024.10781811" class="project-link" target="_blank" rel="noopener">Paper →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="img/projects/TBME_2.png" alt="Radar-Based Spatiotemporal Gait Analysis" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jan 2021 – Nov 2023</div>
+          <h3>Radar-Based Spatiotemporal Gait Analysis Using UWB Sensors</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed a novel radar-based gait analysis framework for extracting clinically relevant spatiotemporal parameters from overground walking using commercially available UWB radar sensors. Introduced a joint Range–Doppler–Time (RDT) representation and signal processing pipeline for contactless gait event detection and parameter quantification.</p>
+            <p>Algorithms designed and implemented include: radar signal pre-processing, clutter suppression, Doppler analysis, gait event detection, multilateration, and gait parameter extraction. Validated against gold-standard optical motion capture with healthy participants, achieving high accuracy in estimating step/stride time, cadence, step/stride length, walking speed, swing/stance time, gait variability, and inter-limb symmetry.</p>
+            <p>Demonstrated the feasibility of radar as a privacy-preserving, unobtrusive alternative to laboratory-based gait assessment, supporting future deployment in continuous in-home mobility monitoring.</p>
+            <div class="project-links">
+              <a href="https://doi.org/10.1109/TBME.2024.3396650" class="project-link" target="_blank" rel="noopener">Paper →</a>
+              <a href="https://www.youtube.com/watch?v=LGXetD7XGA8" class="project-link" target="_blank" rel="noopener">Real-time Demo →</a>
+              <a href="https://www.youtube.com/watch?v=BBo7MIBcHM8" class="project-link" target="_blank" rel="noopener">Pipeline Demo →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Motion Matching -->
+      <div class="project-card">
+        <img src="img/projects/motion_matching.png" alt="Radar Simulation via Kinematic Motion-Matching Synthesis" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jul – Dec 2022</div>
+          <h3>Radar Simulation via Kinematic Motion-Matching Synthesis</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed a radar signal simulation framework using the motion matching algorithm, widely used in the video game industry for character animation, as an alternative to analytical walking models such as the Boulic-Thalmann model. The method enables synthesis of kinematic data for non-periodic and abnormal movements such as limping, unstable walking, and aided gait, which cannot be replicated with analytical approaches.</p>
+            <p>Kinematic data were generated from the LAFAN1 motion capture dataset in collaboration with Dr. Balint Hodossy, then transformed into radar signals for the XeThru X4 sensor in MATLAB. Each of 19 body parts was modelled as a point target with ellipsoidal radar cross-section (RCS), producing Range-Doppler-Time (RDT) representations and Doppler spectrograms consistent with those from analytical models.</p>
+            <p>The framework offers key advantages including support for multi-directional walking, a greater number of body parts, and the ability to synthesise diverse motion patterns such as gait abnormalities and fall-inducing movements. Future extensions include combining motion matching with physics engines and reinforcement learning to simulate human–environment interactions, with applications in fall detection and gait disorder analysis for neurological conditions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="project-card">
+        <img src="img/projects/ASPMI_2.png" alt="Adaptive Signal Processing and Machine Intelligence" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jan 2020 – Mar 2020</div>
+          <h3>Adaptive Signal Processing and Machine Intelligence</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed and evaluated advanced adaptive signal processing and machine intelligence algorithms in MATLAB, covering spectrum estimation, adaptive filtering, system identification, time-frequency analysis, and dimensionality reduction techniques. Implemented and analysed LMS, Leaky LMS, NLMS, GASS, GNGD, CLMS, and ACLMS adaptive algorithms for real-time signal modelling, noise cancellation, frequency estimation, and non-stationary signal tracking. Applied principal component analysis (PCA) and principal component regression (PCR) for robust regression and denoising, and investigated modern spectral estimation techniques including MUSIC, autoregressive modelling, and adaptive spectrum estimation. Demonstrated methods on biomedical, EEG, ECG, respiratory, wind-speed, and power-system datasets.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Adaptive Signal Processing and Machine Intelligence module of the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/ASPMI_Report.pdf" target="_blank" class="project-link">Report →</a>
+              <a href="files/ASPMI_Tasks.pdf" target="_blank" class="project-link">Tasks →</a>
+              <a href="https://github.com/Charalambos-Hadjipanayi/Adaptive_Signal_Processing_and_Machine_Intelligence_Coursework/tree/master" target="_blank" class="project-link">Code →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="project-card">
+        <img src="img/projects/RL.png" alt="Reinforcement Learning and Computational Decision-Making" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jan 2020 – Mar 2020</div>
+          <h3>Reinforcement Learning and Computational Decision-Making</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed and evaluated reinforcement learning algorithms for sequential decision-making and autonomous control problems.</p>
+            <p style="margin-top:0.75rem;font-size:0.88rem;font-weight:600;color:#156082;">Part 1 – Markov Decision Processes and Dynamic Programming</p>
+            <ul style="margin:0.35rem 0 0 1.1rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <li style="font-size:0.88rem;color:#2D3E50;">Modelled stochastic environments using Markov Decision Processes (MDPs)</li>
+              <li style="font-size:0.88rem;color:#2D3E50;">Performed value-function estimation, policy evaluation, and optimal policy derivation</li>
+              <li style="font-size:0.88rem;color:#2D3E50;">Analysed state transitions, reward structures, and grid-world navigation problems</li>
+            </ul>
+            <p style="margin-top:0.75rem;font-size:0.88rem;font-weight:600;color:#156082;">Part 2 – Model-Free Reinforcement Learning</p>
+            <ul style="margin:0.35rem 0 0 1.1rem;display:flex;flex-direction:column;gap:0.3rem;">
+              <li style="font-size:0.88rem;color:#2D3E50;">Implemented Monte Carlo Control, SARSA, and Q-Learning algorithms in MATLAB</li>
+              <li style="font-size:0.88rem;color:#2D3E50;">Developed reinforcement learning agents for the Easy21 environment</li>
+              <li style="font-size:0.88rem;color:#2D3E50;">Evaluated learning performance, convergence behaviour, and exploration–exploitation strategies</li>
+              <li style="font-size:0.88rem;color:#2D3E50;">Compared value-function estimates and policies obtained from different reinforcement learning approaches</li>
+            </ul>
+            <p style="margin-top:0.75rem;">The project provided practical experience in reinforcement learning, computational neuroscience, machine intelligence, and autonomous decision-making systems.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Bits, Brain &amp; Behaviour module of the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/BBB_Tasks_1.pdf" target="_blank" class="project-link">Tasks 1 →</a>
+              <a href="files/BBB_Report_1.pdf" target="_blank" class="project-link">Report 1 →</a>
+              <a href="files/BBB_Tasks_2.pdf" target="_blank" class="project-link">Tasks 2 →</a>
+              <a href="files/BBB_Report_2.pdf" target="_blank" class="project-link">Report 2 →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9 -->
+      <div class="project-card">
+        <img src="img/projects/BMI.png" alt="Neural Decoding for Hand Trajectory Prediction" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Feb 2020 – Mar 2020</div>
+          <h3>Neural Decoding for Hand Trajectory Prediction</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed a causal neural decoder in MATLAB to estimate hand movement trajectories from neural spike train recordings. Implemented and evaluated multiple classifiers, including k-Nearest Neighbours (k-NN), Support Vector Machines (SVM), and Bayesian approaches, achieving 99.75% reaching-angle classification accuracy through majority voting. Principal Component Regression (PCR) was used for hand trajectory estimation, outperforming Non-Linear Least Mean Squares (N-LMS) in both accuracy and computational efficiency.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of a group project for the Brain Machine Interfaces module during the MEng degree at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/BMI_Coursework_Description.pdf" target="_blank" class="project-link">Task →</a>
+              <a href="files/BMI_Report.pdf" target="_blank" class="project-link">Report →</a>
+              <a href="https://github.com/Charalambos-Hadjipanayi/Neural_Decoder/tree/main" target="_blank" class="project-link">Code →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 10 -->
+      <div class="project-card">
+        <img src="img/projects/exoskeleton_v2.png" alt="Exoskeleton Hardware Upgrades" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Oct 2019 – Jun 2020</div>
+          <h3>Exoskeleton Hardware Upgrades for Sensor &amp; Haptic Feedback Integration</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed hardware upgrades for the Exo-H3 powered lower-limb exoskeleton by Technaid as part of the Cybathlon 2020 project. Investigated whether additional sensor information and intuitive haptic feedback could improve exoskeleton control performance beyond conventional sEMG-based control approaches. Work included the development and integration of sensing and haptic feedback systems to support motion intention recognition and user feedback.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Final Year Project for the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/MEng_Final_Report.pdf" target="_blank" class="project-link">Report →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 11 -->
+      <div class="project-card">
+        <img src="img/projects/summer_project.jpeg" alt="Contactless Vital Sign Monitoring Using Doppler Radar" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jul 2019 – Sep 2019</div>
+          <h3>Contactless Vital Sign Monitoring Using Doppler Radar</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed MATLAB algorithms for contactless estimation of heart rate and respiratory rate using Doppler radar signals. The project involved signal acquisition, preprocessing, digital filtering, spectral analysis, and physiological parameter extraction from radar measurements. Implemented and evaluated multiple frequency estimation techniques, including FFT, Welch, Burg, Yule-Walker, and Lomb-Scargle spectral estimation methods. Simultaneously processed ECG recordings to derive reference heart rate and respiration measurements for algorithm validation and performance assessment.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of a research internship at the University of Cyprus, under the supervision of Prof. Constantinos Pitris.</p>
+            <div class="project-links">
+              <a href="files/summer_internship_results.pdf" target="_blank" class="project-link">Presentation →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 12 -->
+      <div class="project-card">
+        <img src="img/projects/ASP.png" alt="Advanced Digital Signal Processing Applications" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Jan 2019 – Mar 2019</div>
+          <h3>Advanced Digital Signal Processing Applications</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed and evaluated a range of advanced digital signal processing algorithms in MATLAB, including stochastic signal analysis, autoregressive modelling, spectral estimation, adaptive filtering, and system identification. Applied these techniques to real-world biomedical and audio signals, including ECG-derived heart rate variability, respiratory sinus arrhythmia, speech prediction, financial time-series modelling, and DTMF tone recognition. The project involved the implementation and performance evaluation of Wiener filters, LMS adaptive filters, autoregressive models, power spectral density estimation methods, and time-frequency analysis techniques.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Advanced Digital Signal Processing module of the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/ASP_Report.pdf" target="_blank" class="project-link">Report →</a>
+              <a href="files/ASP_Tasks.pdf" target="_blank" class="project-link">Tasks →</a>
+              <a href="https://github.com/Charalambos-Hadjipanayi/ASP_Coursework/tree/master" target="_blank" class="project-link">Code →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 13 -->
+      <div class="project-card">
+        <img src="img/projects/BINST.png" alt="Impedance-Based Respiration Monitoring System" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Feb 2019 – Mar 2019</div>
+          <h3>Impedance-Based Respiration Monitoring System</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed and tested subsystems for an impedometric respiration monitoring device, including circuit implementation on stripboard and system integration. Investigated block-level non-idealities and quantified their impact on overall system performance. The project provided practical experience in biomedical instrumentation, analogue circuit debugging, and system-level design for physiological monitoring applications.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Biomedical Instrumentation module of the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/BE3-HBINST_Report.pdf" target="_blank" class="project-link">Report →</a>
+              <a href="files/BE3-HBINST_Task.pdf" target="_blank" class="project-link">Task →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 14 -->
+      <div class="project-card">
+        <img src="img/projects/bioreactor.png" alt="Bioreactor Instrumentation for Mechanical Cell Stimulation" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Oct 2018 – Jun 2019</div>
+          <h3>Bioreactor Instrumentation for Mechanical Cell Stimulation</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Designed instrumentation for a perfusion bioreactor used to study the effects of mechanical strain on cultured cells, and to investigate how mechanical strain influences adipogenesis and adipocyte mechanobiology in vitro. Developed a programmable linear actuation system capable of applying cyclic strains between 0.1–10 Hz, alongside a dual-syringe perfusion system for continuous nutrient delivery. The system was designed to stimulate multiple cell culture samples simultaneously, enabling different mechanical strain conditions to be applied across individual wells within a multi-well culture plate.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Third Year Group Project for the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/3rd_Year_Group_Report.pdf" target="_blank" class="project-link">Report →</a>
+              <a href="files/3rd_Year_Group_Poster.pdf" target="_blank" class="project-link">Poster →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 15 -->
+      <div class="project-card">
+        <img src="img/projects/EDP.png" alt="Assistive Technology Board Game for Inclusive Play" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Oct 2017 – Jun 2018</div>
+          <h3>Assistive Technology Board Game for Inclusive Play</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Developed a four-player pinball-style board game that enabled children with severe motor impairments to play independently alongside their able-bodied peers. Contributed to the design and integration of multiple control interfaces, including voice control, pushbutton input, and eyebrow-based sensing using MMG and IMU sensors. Responsibilities included voice command detection, flipper actuation, electrical integration, power distribution, scoring mechanisms, and system assembly, resulting in a fully functional multiplayer game with integrated audio and visual feedback.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Engineering Design Project challenge in the second year of the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/EDP_Report.pdf" target="_blank" class="project-link">Report →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 16 -->
+      <div class="project-card">
+        <img src="img/projects/stethoscope.png" alt="Electronic Stethoscope Design and Development" class="project-img">
+        <div class="project-info">
+          <div class="project-tag">Feb 2017 – Mar 2017</div>
+          <h3>Electronic Stethoscope Design and Development</h3>
+        </div>
+        <button class="project-toggle" aria-expanded="false">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 4.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Details
+        </button>
+        <div class="project-details" style="height:0;">
+          <div class="project-details-inner">
+            <p>Designed and implemented a heart sound amplification circuit for an electronic stethoscope. Modelled and verified the analogue signal conditioning circuitry using PSpice (OrCAD) before constructing and testing the system with an electret microphone and headphones. The completed device enabled amplification and monitoring of heart sounds, demonstrating the principles of biomedical instrumentation and analogue circuit design.</p>
+            <p style="margin-top:0.6rem;font-size:0.88rem;color:#5A6A7A;font-style:italic;">This work was done as part of the Foundations of Electrical Engineering Laboratory Project in the first year of the MEng degree in Bioengineering at Imperial College London.</p>
+            <div class="project-links">
+              <a href="files/BE1_HEEL1_Report.pdf" target="_blank" class="project-link">Report →</a>
+              <a href="files/Lab_Notes.pdf" target="_blank" class="project-link">Lab Notes →</a>
+              <a href="files/Simulation_Notes.pdf" target="_blank" class="project-link">Simulation Notes →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Videos ────────────────────────────────────────────────────────── -->
+<section id="videos" style="background:#FFFFFF;">
+  <div class="container">
+    <p class="section-label">Videos</p>
+    <h2 class="section-title">Demonstrations</h2>
+    <div class="section-divider"></div>
+
+    <div class="videos-grid">
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/ITlT-8VbEvE"
+            title="GERF Radar Pong: Contactless radar-controlled game"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="video-info">
+          <h3>GERF Radar Pong: Contactless radar-controlled game</h3>
+          <p>Live demonstration of a real-time interactive game controlled entirely by a UWB radar sensor tracking the player's body position — no controllers, cameras, or wearables required.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/BBo7MIBcHM8"
+            title="Visualisation of radar-based gait analysis pipeline"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="video-info">
+          <h3>Visualisation of radar-based gait analysis pipeline</h3>
+          <p>Step-by-step visualisation of the full signal processing pipeline: clutter suppression, STFT spectrogram generation, gait event detection, and foot trajectory extraction from radar data.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/LGXetD7XGA8"
+            title="Radar-based gait analysis in real-time"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="video-info">
+          <h3>Radar-based gait analysis in real-time</h3>
+          <p>Live demonstration of the UWB radar gait analysis system, showing real-time micro-Doppler processing and spatiotemporal feature extraction as a participant walks in front of the sensor.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-links">
+
+    <a href="https://profiles.imperial.ac.uk/charalambos.hadjipanayi15" target="_blank" class="footer-link">
+      <svg viewBox="0 0 22 26" fill="currentColor" aria-hidden="true" class="imperial-i">
+        <rect x="2"   y="0"    width="18" height="5.5"/>
+        <rect x="7.5" y="5.5"  width="7"  height="15"/>
+        <rect x="2"   y="20.5" width="18" height="5.5"/>
+      </svg>
+      Imperial Profile
+    </a>
+
+    <span class="footer-sep">·</span>
+
+    <a href="https://www.linkedin.com/in/charalambos-hadjipanayi/" target="_blank" class="footer-link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+
+    <span class="footer-sep">·</span>
+
+    <a href="https://github.com/Charalambos-Hadjipanayi" target="_blank" class="footer-link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+      GitHub
+    </a>
+
+    <span class="footer-sep">·</span>
+
+    <a href="https://x.com/c_hadjipanayi" target="_blank" rel="noopener" class="footer-link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      X (Twitter)
+    </a>
+
+    <span class="footer-sep">·</span>
+
+    <a href="https://scholar.google.com/citations?user=b6_ntD4AAAAJ&hl=en" target="_blank" rel="noopener" class="footer-link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+      </svg>
+      Google Scholar
+    </a>
+
+    <span class="footer-sep">·</span>
+
+    <a href="https://orcid.org/0000-0002-2624-6178" target="_blank" rel="noopener" class="footer-link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
+      </svg>
+      ORCID
+    </a>
+
+    <span class="footer-sep">·</span>
+
+    <a href="https://www.semanticscholar.org/author/C.-Hadjipanayi/2226787369" target="_blank" rel="noopener" class="footer-link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+      </svg>
+      Semantic Scholar
+    </a>
+
+  </div>
+  <p class="footer-copy">© 2026 Charalambos Hadjipanayi · Last updated: June 2026</p>
+  <p style="margin-top:0.75rem;"><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:#3A4A5A;font-size:0.78rem;text-decoration:none;" onmouseover="this.style.color='#8AAABB'" onmouseout="this.style.color='#3A4A5A'">↑ Back to top</a></p>
+</footer>
+
+<script src="js/main.js?v=5"></script>
+</body>
+</html>
