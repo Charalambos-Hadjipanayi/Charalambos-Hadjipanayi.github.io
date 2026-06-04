@@ -551,13 +551,15 @@ footer {
     gap: 0;
     background: var(--navy);
     padding: 0;
-    box-shadow: 0 10px 18px rgba(0,0,0,0.28);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    transform: translateY(-145%);
-    transition: transform 0.35s ease;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
     z-index: 90;
   }
-  .nav-links.open { transform: translateY(0); }
+  .nav-links.open {
+    max-height: 320px;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.28);
+  }
   .nav-links li { width: 100%; }
   .nav-links a {
     display: block;
