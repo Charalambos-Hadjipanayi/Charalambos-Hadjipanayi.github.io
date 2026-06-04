@@ -14,7 +14,14 @@
   var links  = document.querySelector('.nav-links');
   if (!toggle || !links) return;
 
-  toggle.addEventListener('click', function () {
+  function close() {
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function (e) {
+    e.stopPropagation();
     var open = links.classList.toggle('open');
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
@@ -22,11 +29,14 @@
 
   // Close the menu after tapping a link
   links.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      links.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+    a.addEventListener('click', close);
+  });
+
+  // Close when tapping anywhere outside the open menu
+  document.addEventListener('click', function (e) {
+    if (links.classList.contains('open') && !links.contains(e.target) && !toggle.contains(e.target)) {
+      close();
+    }
   });
 }());
 
