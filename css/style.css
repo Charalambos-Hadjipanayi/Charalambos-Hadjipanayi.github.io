@@ -536,6 +536,10 @@ footer {
 .footer-copy { color: #3A4A5A; font-size: 0.78rem; }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
+/* ── Hero social links: responsive reflow (mobile only) ─────────────────── */
+.hero-social .flex-break { flex-basis: 100%; height: 0; }
+.hero-social .brk-mobile, .hero-social .sep-mobile { display: none; }
+
 @media (max-width: 700px) {
   .hero-name { font-size: 2rem; }
   .about-grid { grid-template-columns: 1fr; }
@@ -570,6 +574,11 @@ footer {
 
   .hero-inner { flex-direction: column; text-align: center; }
   .hero-cta, .hero-tags { justify-content: center; }
+  /* Hero social links: 3 / 3 / 1 rows, all centred */
+  .hero-social { justify-content: center; }
+  .hero-social .brk-desktop, .hero-social .sep-desktop { display: none; }
+  .hero-social .brk-mobile { display: block; }
+  .hero-social .sep-mobile { display: inline; }
   .social-item { font-size: 0.82rem; padding: 0.5rem 0.8rem; }
   .contact-bottom { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
