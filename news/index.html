@@ -16,6 +16,8 @@
     .news-list { position:relative; margin-left:6px; padding-left:28px; border-left:2px solid var(--border,#DDE4EC); }
     .news-item { position:relative; padding-bottom:2.6rem; }
     .news-item:last-child { padding-bottom:0; }
+    /* default to latest 5 before JS runs (JS then paginates via inline display) */
+    .news-list .news-item:nth-child(n+6) { display:none; }
     .news-item::before { content:""; position:absolute; left:-37px; top:4px; width:14px; height:14px;
       border-radius:50%; background:#E97132; border:3px solid #FFFFFF; box-shadow:0 0 0 2px #DDE4EC; }
     .news-date { font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#0F9ED5; }
@@ -24,6 +26,16 @@
     .news-head { font-size:0.98rem; font-weight:600; color:#0E2841; margin:0.35rem 0 0.3rem; max-width:504px; }
     .li-iframe { width:100%; max-width:504px; height:540px; margin-top:0.7rem;
       border:1px solid #e0e0e0; border-radius:10px; background:#fff; }
+    .news-status { margin:-0.6rem 0 1.7rem; font-size:0.82rem; }
+    .news-status .ns-latest { color:#5A6A7A; font-weight:600; }
+    .news-status .ns-older { color:#E97132; font-weight:700; }
+    .news-status a { margin-left:12px; font-size:0.8rem; }
+    .news-nav { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:1.8rem; }
+    .news-nav button { font:inherit; font-size:0.85rem; font-weight:600; padding:8px 18px; border-radius:999px;
+      border:2px solid #156082; background:#156082; color:#fff; cursor:pointer; transition:background .2s,border-color .2s; }
+    .news-nav button:hover:not(:disabled) { background:#0E2841; border-color:#0E2841; }
+    .news-nav button:disabled { opacity:0.4; cursor:default; background:#fff; color:#5A6A7A; border-color:#DDE4EC; }
+    .news-nav #news-range { font-size:0.8rem; color:#5A6A7A; min-width:150px; text-align:center; }
   </style>
 </head>
 <body>
@@ -48,6 +60,8 @@
     <h2 class="section-title">News &amp; Updates</h2>
     <div class="section-divider"></div>
 
+    <div id="news-status" class="news-status"></div>
+
     <!-- Posts are ordered newest first. When adding a new post, place it in the
          correct date position (newest at top); date is derived from the post ID. -->
     <div class="news-list">
@@ -57,7 +71,7 @@
         <span class="news-date">19 June 2026</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Paper accepted: contactless gait monitoring in Parkinson's disease</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7473678820311543808" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7473678820311543808" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 10 Jun 2026 -->
@@ -65,7 +79,7 @@
         <span class="news-date">10 June 2026</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Imperial EEE: highlights from the Great Exhibition Road Festival</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7470477597836152834" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7470477597836152834" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 8 Jun 2026 -->
@@ -73,7 +87,7 @@
         <span class="news-date">8 June 2026</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Radar at the Great Exhibition Road Festival 2026</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7469730022610771968" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7469730022610771968" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 28 Apr 2026 -->
@@ -81,7 +95,7 @@
         <span class="news-date">28 April 2026</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Four papers accepted at IEEE EMBC 2026</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454841799950561280" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454841799950561280" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 13 Mar 2026 -->
@@ -89,7 +103,7 @@
         <span class="news-date">13 March 2026</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Radar sensing for home healthcare monitoring</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7438277973004320768" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7438277973004320768" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 9 Jan 2026 -->
@@ -97,7 +111,7 @@
         <span class="news-date">9 January 2026</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Towards radar-agnostic gait analysis across radar systems</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7415376902569574400" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7415376902569574400" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 16 Sep 2025 -->
@@ -105,7 +119,7 @@
         <span class="news-date">16 September 2025</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Sleep health assessment with impulse radar published in IEEE TBME</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7373831903059103744" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7373831903059103744" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 21 Dec 2024 -->
@@ -113,7 +127,7 @@
         <span class="news-date">21 December 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Capturing gait parameters during asymmetric walking (EMBC 2024)</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7276197924085116928" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7276197924085116928" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 21 Nov 2024 -->
@@ -121,7 +135,7 @@
         <span class="news-date">21 November 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">PhD viva passed: remote gait analysis using UWB radar-on-chip</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7265322410092978176" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7265322410092978176" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 25 Oct 2024 -->
@@ -129,7 +143,7 @@
         <span class="news-date">25 October 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">BioCAS 2024: UWB radar technology</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7255598372114362368" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7255598372114362368" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 24 Oct 2024 -->
@@ -137,7 +151,7 @@
         <span class="news-date">24 October 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">IEEE BioCAS 2024</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7255024981263196160" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7255024981263196160" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 25 Jul 2024 -->
@@ -145,7 +159,7 @@
         <span class="news-date">25 July 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Presenting our work at IEEE EMBC 2024</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7222163188291653632" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7222163188291653632" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 16 Jul 2024 -->
@@ -153,7 +167,7 @@
         <span class="news-date">16 July 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Ahead of IEEE EMBC 2024 (EMBS)</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7218782384085712896" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7218782384085712896" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 17 May 2024 -->
@@ -161,7 +175,7 @@
         <span class="news-date">17 May 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Papers accepted at IEEE EMBC 2024</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7197267966357311489" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7197267966357311489" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 5 May 2024 -->
@@ -169,7 +183,7 @@
         <span class="news-date">5 May 2024</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Remote gait analysis using UWB radar published in IEEE TBME</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7192937362971103232" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7192937362971103232" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 8 Nov 2022 -->
@@ -177,7 +191,7 @@
         <span class="news-date">8 November 2022</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Presenting radar research at the Connectome conference</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6995795082276700160" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6995795082276700160" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 19 May 2022 -->
@@ -185,7 +199,7 @@
         <span class="news-date">19 May 2022</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Radar for dementia research</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6933082448360611840" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6933082448360611840" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 13 Oct 2021 -->
@@ -193,7 +207,7 @@
         <span class="news-date">13 October 2021</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Step detection algorithm based on micro-Doppler signatures</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6854100103821574145" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6854100103821574145" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 31 Jul 2020 -->
@@ -201,7 +215,7 @@
         <span class="news-date">31 July 2020</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">Graduated with First-Class Honours, MEng Bioengineering, Imperial College London</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6694962512070234112" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6694962512070234112" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
       <!-- 30 Jun 2020 -->
@@ -209,9 +223,15 @@
         <span class="news-date">30 June 2020</span>
         <span class="news-tag">LinkedIn</span>
         <h3 class="news-head">MEng project dissertation</h3>
-        <iframe class="li-iframe" loading="lazy" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6683769361527803905" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+        <iframe class="li-iframe" loading="lazy" data-src="https://www.linkedin.com/embed/feed/update/urn:li:activity:6683769361527803905" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
+    </div>
+
+    <div class="news-nav">
+      <button id="newerBtn" type="button">&larr; Newer</button>
+      <span id="news-range"></span>
+      <button id="olderBtn" type="button">Older &rarr;</button>
     </div>
   </div>
 </section>
@@ -289,5 +309,54 @@
 </footer>
 
 <script src="/js/main.js?v=9"></script>
+<script>
+/* News pagination: show 5 posts per page, newest first; load embeds on demand. */
+(function () {
+  var section = document.getElementById('news');
+  if (!section) return;
+  var items = Array.prototype.slice.call(section.querySelectorAll('.news-item'));
+  var statusEl = document.getElementById('news-status');
+  var rangeEl  = document.getElementById('news-range');
+  var newerBtn = document.getElementById('newerBtn');
+  var olderBtn = document.getElementById('olderBtn');
+  var PAGE = 5;
+  var pages = Math.max(1, Math.ceil(items.length / PAGE));
+  var cur = 0;
+
+  function loadVisible(start, end) {
+    for (var i = start; i < end && i < items.length; i++) {
+      var f = items[i].querySelector('iframe[data-src]');
+      if (f && !f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src'));
+    }
+  }
+
+  function show(p) {
+    cur = Math.max(0, Math.min(p, pages - 1));
+    var start = cur * PAGE, end = start + PAGE;
+    items.forEach(function (it, i) { it.style.display = (i >= start && i < end) ? '' : 'none'; });
+    loadVisible(start, end);
+
+    var from = start + 1, to = Math.min(end, items.length);
+    if (cur === 0) {
+      statusEl.innerHTML = '<span class="ns-latest">Showing the latest posts</span>';
+    } else {
+      statusEl.innerHTML = '<span class="ns-older">Viewing older posts — not the latest.</span>' +
+        '<a href="#news" id="backLatest">&uarr; Back to latest</a>';
+      var bl = document.getElementById('backLatest');
+      if (bl) bl.addEventListener('click', function (e) { e.preventDefault(); show(0); toTop(); });
+    }
+    rangeEl.textContent = 'Posts ' + from + '–' + to + ' of ' + items.length;
+    newerBtn.disabled = (cur === 0);
+    olderBtn.disabled = (cur === pages - 1);
+  }
+
+  function toTop() { section.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+
+  newerBtn.addEventListener('click', function () { if (cur > 0) { show(cur - 1); toTop(); } });
+  olderBtn.addEventListener('click', function () { if (cur < pages - 1) { show(cur + 1); toTop(); } });
+
+  show(0);
+})();
+</script>
 </body>
 </html>
