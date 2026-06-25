@@ -1,15 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Charalambos Hadjipanayi</title>
-  <meta name="description" content="Get in touch with Charalambos Hadjipanayi, postdoctoral researcher at Imperial College London specialising in radar-based health monitoring." />
-  <link rel="canonical" href="https://charalambos-hadjipanayi.github.io/contact/" />
+  <title>News — Charalambos Hadjipanayi</title>
+  <meta name="description" content="Latest news and updates from Charalambos Hadjipanayi, postdoctoral researcher in radar-based health monitoring at Imperial College London." />
+  <link rel="canonical" href="https://charalambos-hadjipanayi.github.io/news/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="/img/favicon_2.png?v=2" />
-  <link rel="stylesheet" href="/css/style.css?v=23" />
+  <link rel="stylesheet" href="/css/style.css?v=24" />
+  <style>
+    /* News section (kept page-local to avoid global CSS cache issues) */
+    #news { background:#FFFFFF; }
+    .news-list { position:relative; margin-left:6px; padding-left:28px; border-left:2px solid var(--border,#DDE4EC); }
+    .news-item { position:relative; padding-bottom:2.6rem; }
+    .news-item:last-child { padding-bottom:0; }
+    .news-item::before { content:""; position:absolute; left:-37px; top:4px; width:14px; height:14px;
+      border-radius:50%; background:#E97132; border:3px solid #FFFFFF; box-shadow:0 0 0 2px #DDE4EC; }
+    .news-date { font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#0F9ED5; }
+    .news-tag { display:inline-block; font-size:0.66rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;
+      padding:2px 8px; border-radius:999px; margin-left:8px; vertical-align:middle; background:#e8f1fb; color:#0a66c2; }
+    .news-head { font-size:1.05rem; font-weight:600; color:#0E2841; margin:0.35rem 0 0.3rem; }
+    .news-body { font-size:0.93rem; color:#5A6A7A; line-height:1.55; margin:0 0 0.3rem; }
+    .li-iframe { width:100%; max-width:504px; height:540px; margin-top:0.7rem;
+      border:1px solid #e0e0e0; border-radius:10px; background:#fff; }
+  </style>
 </head>
 <body>
 
@@ -26,44 +42,42 @@
   </ul>
 </nav>
 
-<!-- ── Contact ────────────────────────────────────────────────────────── -->
-<section id="contact">
+<!-- ── News ───────────────────────────────────────────────────────────── -->
+<section id="news">
   <div class="container">
-    <p class="section-label">Get in Touch</p>
-    <h2 class="section-title">Contact</h2>
+    <p class="section-label">Latest</p>
+    <h2 class="section-title">News &amp; Updates</h2>
     <div class="section-divider"></div>
 
-    <p class="contact-intro">I am always happy to discuss research collaborations, consulting
-    opportunities, or questions about my work. Fill in the form below or find me on the links at the bottom of the page.</p>
+    <!-- Posts are ordered newest first. When adding a new post, place it in the
+         correct date position (newest at top) and set its date from the post. -->
+    <div class="news-list">
 
-    <!-- Form + address -->
-    <div class="contact-bottom">
+      <!-- 19 Jun 2026 -->
+      <div class="news-item">
+        <span class="news-date">19 June 2026</span>
+        <span class="news-tag">LinkedIn</span>
+        <h3 class="news-head">Paper accepted: contactless gait monitoring in Parkinson's disease</h3>
+        <p class="news-body">Our work using contactless sensors to monitor gait changes in Parkinson's disease has been accepted for publication.</p>
+        <iframe class="li-iframe" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7473678820311543808" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+      </div>
 
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" placeholder="Your message…" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" id="cfSubmit">Send Message</button>
-        <div id="cfResponse"></div>
-      </form>
+      <!-- 8 Jun 2026 -->
+      <div class="news-item">
+        <span class="news-date">8 June 2026</span>
+        <span class="news-tag">LinkedIn</span>
+        <h3 class="news-head">Radar at the Great Exhibition Road Festival 2026</h3>
+        <p class="news-body">Showcasing our radar technology and dementia-care research to the public at the Great Exhibition Road Festival.</p>
+        <iframe class="li-iframe" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7469730022610771968" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
+      </div>
 
-      <div class="contact-map">
-        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.35rem;">
-          <span class="map-pin" style="font-size:1.1rem;line-height:1;">📍</span>
-          <strong>Imperial College London</strong>
-        </div>
-        Office B422, Level 4, Bessemer Building,<br>South Kensington Campus,<br>London, SW7 2AZ<br>United Kingdom
+      <!-- 28 Apr 2026 -->
+      <div class="news-item">
+        <span class="news-date">28 April 2026</span>
+        <span class="news-tag">LinkedIn</span>
+        <h3 class="news-head">Four papers accepted at IEEE EMBC 2026</h3>
+        <p class="news-body">Our team had four radar-sensing papers accepted at IEEE EMBC 2026 in Toronto.</p>
+        <iframe class="li-iframe" src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7454841799950561280" frameborder="0" allowfullscreen title="Embedded LinkedIn post"></iframe>
       </div>
 
     </div>
