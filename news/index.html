@@ -14,6 +14,12 @@
     /* News section (kept page-local to avoid global CSS cache issues) */
     #news { background:#FFFFFF; }
     .news-list { position:relative; margin-left:6px; padding-left:28px; border-left:2px solid var(--border,#DDE4EC); }
+    /* dashed continuation: timeline keeps going to newer (top) or older (bottom) posts */
+    .news-list::before, .news-list::after { content:""; position:absolute; left:-2px; width:0; height:26px; border-left:2px dashed #B8C6D2; display:none; }
+    .news-list::before { top:-26px; }
+    .news-list::after  { bottom:-26px; }
+    .news-list.dash-top::before { display:block; }
+    .news-list.dash-bottom::after { display:block; }
     .news-item { position:relative; padding-bottom:2.6rem; }
     .news-item:last-child { padding-bottom:0; }
     /* default to latest 5 before JS runs (JS then paginates via inline display) */
@@ -26,10 +32,6 @@
     .news-head { font-size:0.98rem; font-weight:600; color:#0E2841; margin:0.35rem 0 0.3rem; max-width:504px; }
     .li-iframe { width:100%; max-width:504px; height:540px; margin-top:0.7rem;
       border:1px solid #e0e0e0; border-radius:10px; background:#fff; }
-    .news-status { margin:-0.6rem 0 1.7rem; font-size:0.82rem; }
-    .news-status .ns-latest { color:#5A6A7A; font-weight:600; }
-    .news-status .ns-older { color:#E97132; font-weight:700; }
-    .news-status a { margin-left:12px; font-size:0.8rem; }
     .news-nav { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:1.8rem; }
     .news-nav button { font:inherit; font-size:0.85rem; font-weight:600; padding:8px 18px; border-radius:999px;
       border:2px solid #156082; background:#156082; color:#fff; cursor:pointer; transition:background .2s,border-color .2s; }
@@ -59,8 +61,6 @@
     <p class="section-label">Latest</p>
     <h2 class="section-title">News &amp; Updates</h2>
     <div class="section-divider"></div>
-
-    <div id="news-status" class="news-status"></div>
 
     <!-- Posts are ordered newest first. When adding a new post, place it in the
          correct date position (newest at top); date is derived from the post ID. -->
@@ -315,8 +315,8 @@
   var section = document.getElementById('news');
   if (!section) return;
   var items = Array.prototype.slice.call(section.querySelectorAll('.news-item'));
-  var statusEl = document.getElementById('news-status');
   var rangeEl  = document.getElementById('news-range');
+  var list     = section.querySelector('.news-list');
   var newerBtn = document.getElementById('newerBtn');
   var olderBtn = document.getElementById('olderBtn');
   var PAGE = 5;
@@ -333,19 +333,16 @@
   function show(p) {
     cur = Math.max(0, Math.min(p, pages - 1));
     var start = cur * PAGE, end = start + PAGE;
-    items.forEach(function (it, i) { it.style.display = (i >= start && i < end) ? '' : 'none'; });
+    items.forEach(function (it, i) { it.style.display = (i >= start && i < end) ? 'block' : 'none'; });
     loadVisible(start, end);
 
     var from = start + 1, to = Math.min(end, items.length);
-    if (cur === 0) {
-      statusEl.innerHTML = '<span class="ns-latest">Showing the latest posts</span>';
-    } else {
-      statusEl.innerHTML = '<span class="ns-older">Viewing older posts — not the latest.</span>' +
-        '<a href="#news" id="backLatest">&uarr; Back to latest</a>';
-      var bl = document.getElementById('backLatest');
-      if (bl) bl.addEventListener('click', function (e) { e.preventDefault(); show(0); toTop(); });
-    }
     rangeEl.textContent = 'Posts ' + from + '–' + to + ' of ' + items.length;
+
+    // dashed timeline ends: newer posts exist above (top), older posts below (bottom)
+    list.classList.toggle('dash-top', cur > 0);
+    list.classList.toggle('dash-bottom', cur < pages - 1);
+
     newerBtn.disabled = (cur === 0);
     olderBtn.disabled = (cur === pages - 1);
   }
