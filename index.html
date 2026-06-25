@@ -12,33 +12,32 @@
   <link rel="icon" type="image/png" href="/img/favicon_2.png?v=2" />
   <link rel="stylesheet" href="css/style.css?v=24" />
   <style>
-    /* Career & Education section (page-local to avoid global CSS cache issues) */
-    #cv { background: var(--bg); }
-    #cv .cv-block { margin-bottom: 2.8rem; max-width: 720px; }
-    #cv .cv-block:last-child { margin-bottom: 0; }
-    #cv .cv-head { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.3rem; }
-    #cv .cv-sub { font-size:0.74rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin:0; }
-    #cv .tl-arrows { display:flex; gap:6px; }
-    #cv .tl-arrows[hidden] { display:none; }
-    #cv .tl-arrows button { width:30px; height:30px; border-radius:50%; border:2px solid var(--border); background:#fff;
-      color:var(--navy); font-size:0.85rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;
-      transition:border-color .2s,color .2s; }
-    #cv .tl-arrows button:hover:not(:disabled) { border-color:var(--teal); color:var(--teal); }
-    #cv .tl-arrows button:disabled { opacity:0.35; cursor:default; }
-    #cv .tl-scroll { padding-left:12px; overflow-x:hidden; overflow-y:auto; scrollbar-width:none; }
-    #cv .tl-scroll::-webkit-scrollbar { display:none; }
-    #cv .tl { position:relative; padding-left:26px; border-left:2px solid var(--border); }
-    #cv .tl-item { position:relative; padding-bottom:1.7rem; }
-    #cv .tl-item:last-child { padding-bottom:0.2rem; }
-    #cv .tl-item::before { content:""; box-sizing:border-box; position:absolute; left:-34px; top:3px; width:14px; height:14px;
-      border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 0 0 2px var(--bg); }
-    #cv .tl-item.edu::before { border-color:var(--orange); }
-    #cv .tl-item.award::before { border-color:var(--lightblue); }
-    #cv .tl-date { font-size:0.72rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--lightblue); }
-    #cv .tl-role { font-size:0.98rem; font-weight:700; color:var(--navy); margin:0.25rem 0 0.05rem; }
-    #cv .tl-org { font-size:0.86rem; font-weight:600; color:var(--teal); margin:0; }
-    #cv .tl-note { font-size:0.83rem; color:var(--muted); line-height:1.5; margin:0.2rem 0 0; }
-    @media (max-width:600px) { #cv .tl-role { font-size:0.94rem; } }
+    /* Career & Education (page-local to avoid global CSS cache issues; nested in About) */
+    .cv .cv-block { margin-bottom: 2.4rem; max-width: 720px; }
+    .cv .cv-block:last-child { margin-bottom: 0; }
+    .cv .cv-sub { font-size:0.74rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin:0 0 1.2rem; }
+    .cv .cv-fade { position:relative; }
+    .cv .cv-fade::before, .cv .cv-fade::after { content:""; position:absolute; left:0; right:0; height:52px; pointer-events:none; opacity:0; transition:opacity .25s; z-index:2; }
+    .cv .cv-fade::before { top:0; background:linear-gradient(to bottom,#fff,rgba(255,255,255,0)); }
+    .cv .cv-fade::after { bottom:0; background:linear-gradient(to top,#fff,rgba(255,255,255,0)); }
+    .cv .cv-fade.more-above::before { opacity:1; }
+    .cv .cv-fade.more-below::after { opacity:1; }
+    .cv .tl-scroll { overflow-x:hidden; overflow-y:auto; scrollbar-width:none; padding-left:12px; }
+    .cv .tl-scroll.pannable { cursor:grab; }
+    .cv .tl-scroll.dragging { cursor:grabbing; user-select:none; }
+    .cv .tl-scroll::-webkit-scrollbar { display:none; }
+    .cv .tl { position:relative; padding-left:26px; border-left:2px solid var(--border); }
+    .cv .tl-item { position:relative; padding-bottom:1.7rem; }
+    .cv .tl-item:last-child { padding-bottom:0.2rem; }
+    .cv .tl-item::before { content:""; box-sizing:border-box; position:absolute; left:-34px; top:3px; width:14px; height:14px;
+      border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 0 0 2px #fff; }
+    .cv .tl-item.edu::before { border-color:var(--orange); }
+    .cv .tl-item.award::before { border-color:var(--lightblue); }
+    .cv .tl-date { font-size:0.72rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--lightblue); }
+    .cv .tl-role { font-size:0.98rem; font-weight:700; color:var(--navy); margin:0.25rem 0 0.05rem; }
+    .cv .tl-org { font-size:0.86rem; font-weight:600; color:var(--teal); margin:0; }
+    .cv .tl-note { font-size:0.83rem; color:var(--muted); line-height:1.5; margin:0.2rem 0 0; }
+    @media (max-width:600px) { .cv .tl-role { font-size:0.94rem; } }
   </style>
 </head>
 <body>
@@ -309,79 +308,48 @@
         </div>
       </div>
 
+      <div style="margin-top:2rem;">
+        <p class="section-label" style="margin-bottom:1.2rem;color:#E97132;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Career &amp; Education</p>
+        <div class="cv">
+
+          <div class="cv-block">
+            <p class="cv-sub">Career</p>
+            <div class="cv-fade"><div class="tl-scroll"><div class="tl">
+              <div class="tl-item"><span class="tl-date">Feb 2025 – Present</span><p class="tl-role">Research Associate, Radar Signal Processing</p><p class="tl-org">Imperial College London — UK DRI CR&amp;T / NGNI Lab</p><p class="tl-note">Radar-based behavioural and physiological sensing for healthcare.</p></div>
+              <div class="tl-item"><span class="tl-date">Jul 2024 – Feb 2025</span><p class="tl-role">Research Assistant, Radar Signal Processing</p><p class="tl-org">Imperial College London — UK DRI CR&amp;T / NGNI Lab</p></div>
+              <div class="tl-item"><span class="tl-date">Feb 2021 – Jul 2024</span><p class="tl-role">Graduate Teaching Assistant</p><p class="tl-org">Imperial College London</p></div>
+              <div class="tl-item"><span class="tl-date">Jul – Sep 2019</span><p class="tl-role">Summer Intern — Microwave radar vital-signs</p><p class="tl-org">University of Cyprus</p></div>
+              <div class="tl-item"><span class="tl-date">Jul – Aug 2018</span><p class="tl-role">Assistant Technician</p><p class="tl-org">Scientronics Ltd.</p></div>
+              <div class="tl-item"><span class="tl-date">Jun 2015 – Jul 2016</span><p class="tl-role">Electronic Telecommunications Operator</p><p class="tl-org">Cyprus National Guard (General Staff)</p></div>
+              <div class="tl-item"><span class="tl-date">Jul – Aug 2013</span><p class="tl-role">Laboratory Assistant</p><p class="tl-org">Molecular Medicine Research Center, University of Cyprus</p></div>
+            </div></div></div>
+          </div>
+
+          <div class="cv-block">
+            <p class="cv-sub">Education</p>
+            <div class="cv-fade"><div class="tl-scroll"><div class="tl">
+              <div class="tl-item edu"><span class="tl-date">Sep 2020 – Feb 2025</span><p class="tl-role">PhD, Electrical &amp; Electronic Engineering</p><p class="tl-org">Imperial College London</p><p class="tl-note">Remote Gait Analysis for Assisted Living using Radar-on-Chip Technology.</p></div>
+              <div class="tl-item edu"><span class="tl-date">2016 – 2020</span><p class="tl-role">MEng, Biomedical Engineering</p><p class="tl-org">Imperial College London</p><p class="tl-note">First-Class Honours (80.9%).</p></div>
+              <div class="tl-item edu"><span class="tl-date">2007 – 2014</span><p class="tl-role">The Grammar School, Nicosia</p><p class="tl-org">A-Levels: Biology, Physics, Maths, Further Maths (all A*)</p></div>
+            </div></div></div>
+          </div>
+
+          <div class="cv-block">
+            <p class="cv-sub">Honours &amp; Awards</p>
+            <div class="cv-fade"><div class="tl-scroll"><div class="tl">
+              <div class="tl-item award"><span class="tl-date">Oct 2025</span><p class="tl-role">EPSRC Doctoral Prize Fellowship</p><p class="tl-org">EPSRC · Imperial College London</p></div>
+              <div class="tl-item award"><span class="tl-date">Oct 2024</span><p class="tl-role">Best Live Demonstration (1st Prize)</p><p class="tl-org">IEEE BioCAS 2024</p></div>
+              <div class="tl-item award"><span class="tl-date">Sep 2020</span><p class="tl-role">EPSRC DTP PhD Studentship</p><p class="tl-org">EPSRC · Imperial College London</p></div>
+              <div class="tl-item award"><span class="tl-date">2017 – 2019</span><p class="tl-role">Dean's List (3 years)</p><p class="tl-org">Imperial College London</p></div>
+              <div class="tl-item award"><span class="tl-date">2014</span><p class="tl-role">Academic Excellence Award</p><p class="tl-org">The Grammar School, Nicosia</p></div>
+              <div class="tl-item award"><span class="tl-date">2012</span><p class="tl-role">Highest international mark (joint), GCSE Mathematics</p><p class="tl-org">Edexcel</p></div>
+            </div></div></div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-  </div>
-</section>
-
-
-<!-- Career & Education -->
-<section id="cv">
-  <div class="container">
-    <p class="section-label">Background</p>
-    <h2 class="section-title">Career &amp; Education</h2>
-    <div class="section-divider"></div>
-
-    <!-- CAREER -->
-    <div class="cv-block">
-      <div class="cv-head">
-        <p class="cv-sub">Career</p>
-        <div class="tl-arrows" hidden>
-          <button type="button" class="tl-up" aria-label="Scroll up">&uarr;</button>
-          <button type="button" class="tl-down" aria-label="Scroll down">&darr;</button>
-        </div>
-      </div>
-      <div class="tl-scroll">
-        <div class="tl">
-          <div class="tl-item"><span class="tl-date">Feb 2025 – Present</span><p class="tl-role">Research Associate, Radar Signal Processing</p><p class="tl-org">Imperial College London — UK DRI CR&amp;T / NGNI Lab</p><p class="tl-note">Radar-based behavioural and physiological sensing for healthcare.</p></div>
-          <div class="tl-item"><span class="tl-date">Jul 2024 – Feb 2025</span><p class="tl-role">Research Assistant, Radar Signal Processing</p><p class="tl-org">Imperial College London — UK DRI CR&amp;T / NGNI Lab</p></div>
-          <div class="tl-item"><span class="tl-date">Feb 2021 – Jul 2024</span><p class="tl-role">Graduate Teaching Assistant</p><p class="tl-org">Imperial College London</p></div>
-          <div class="tl-item"><span class="tl-date">Jul – Sep 2019</span><p class="tl-role">Summer Intern — Microwave radar vital-signs</p><p class="tl-org">University of Cyprus</p></div>
-          <div class="tl-item"><span class="tl-date">Jul – Aug 2018</span><p class="tl-role">Assistant Technician</p><p class="tl-org">Scientronics Ltd.</p></div>
-          <div class="tl-item"><span class="tl-date">Jun 2015 – Jul 2016</span><p class="tl-role">Electronic Telecommunications Operator</p><p class="tl-org">Cyprus National Guard (General Staff)</p></div>
-          <div class="tl-item"><span class="tl-date">Jul – Aug 2013</span><p class="tl-role">Laboratory Assistant</p><p class="tl-org">Molecular Medicine Research Center, University of Cyprus</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EDUCATION -->
-    <div class="cv-block">
-      <div class="cv-head">
-        <p class="cv-sub">Education</p>
-        <div class="tl-arrows" hidden>
-          <button type="button" class="tl-up" aria-label="Scroll up">&uarr;</button>
-          <button type="button" class="tl-down" aria-label="Scroll down">&darr;</button>
-        </div>
-      </div>
-      <div class="tl-scroll">
-        <div class="tl">
-          <div class="tl-item edu"><span class="tl-date">Sep 2020 – Feb 2025</span><p class="tl-role">PhD, Electrical &amp; Electronic Engineering</p><p class="tl-org">Imperial College London</p><p class="tl-note">Remote Gait Analysis for Assisted Living using Radar-on-Chip Technology.</p></div>
-          <div class="tl-item edu"><span class="tl-date">2016 – 2020</span><p class="tl-role">MEng, Biomedical Engineering</p><p class="tl-org">Imperial College London</p><p class="tl-note">First-Class Honours (80.9%).</p></div>
-          <div class="tl-item edu"><span class="tl-date">2007 – 2014</span><p class="tl-role">The Grammar School, Nicosia</p><p class="tl-org">A-Levels: Biology, Physics, Maths, Further Maths (all A*)</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HONOURS & AWARDS -->
-    <div class="cv-block">
-      <div class="cv-head">
-        <p class="cv-sub">Honours &amp; Awards</p>
-        <div class="tl-arrows" hidden>
-          <button type="button" class="tl-up" aria-label="Scroll up">&uarr;</button>
-          <button type="button" class="tl-down" aria-label="Scroll down">&darr;</button>
-        </div>
-      </div>
-      <div class="tl-scroll">
-        <div class="tl">
-          <div class="tl-item award"><span class="tl-date">Oct 2025</span><p class="tl-role">EPSRC Doctoral Prize Fellowship</p><p class="tl-org">EPSRC · Imperial College London</p></div>
-          <div class="tl-item award"><span class="tl-date">Oct 2024</span><p class="tl-role">Best Live Demonstration (1st Prize)</p><p class="tl-org">IEEE BioCAS 2024</p></div>
-          <div class="tl-item award"><span class="tl-date">Sep 2020</span><p class="tl-role">EPSRC DTP PhD Studentship</p><p class="tl-org">EPSRC · Imperial College London</p></div>
-          <div class="tl-item award"><span class="tl-date">2017 – 2019</span><p class="tl-role">Dean's List (3 years)</p><p class="tl-org">Imperial College London</p></div>
-          <div class="tl-item award"><span class="tl-date">2014</span><p class="tl-role">Academic Excellence Award</p><p class="tl-org">The Grammar School, Nicosia</p></div>
-          <div class="tl-item award"><span class="tl-date">2012</span><p class="tl-role">Highest international mark (joint), GCSE Mathematics</p><p class="tl-org">Edexcel</p></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -460,16 +428,14 @@
 
 <script src="js/main.js?v=9"></script>
 <script>
-/* Career & Education: show first 5 items per timeline; scroll the rest with arrows / touch. */
+/* Career & Education: first 5 items visible per timeline; drag (mouse) or touch to pan; fade hints more. */
 (function () {
   var LIMIT = 5;
-  var blocks = Array.prototype.slice.call(document.querySelectorAll('#cv .cv-block'));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.cv .cv-block'));
   blocks.forEach(function (block) {
+    var fade   = block.querySelector('.cv-fade');
     var scroll = block.querySelector('.tl-scroll');
     var items  = block.querySelectorAll('.tl-item');
-    var arrows = block.querySelector('.tl-arrows');
-    var up     = block.querySelector('.tl-up');
-    var down   = block.querySelector('.tl-down');
     if (!scroll || items.length <= LIMIT) return;
 
     function applyCap() {
@@ -477,14 +443,27 @@
       if (h > 0) scroll.style.maxHeight = h + 'px';
     }
     function update() {
-      up.disabled   = scroll.scrollTop <= 1;
-      down.disabled = (scroll.scrollTop + scroll.clientHeight) >= (scroll.scrollHeight - 1);
+      if (!fade) return;
+      fade.classList.toggle('more-above', scroll.scrollTop > 2);
+      fade.classList.toggle('more-below', (scroll.scrollTop + scroll.clientHeight) < (scroll.scrollHeight - 2));
     }
-    function step() { return Math.max(80, scroll.clientHeight * 0.85); }
 
-    arrows.hidden = false;
-    up.addEventListener('click', function () { scroll.scrollBy({ top: -step(), behavior: 'smooth' }); });
-    down.addEventListener('click', function () { scroll.scrollBy({ top: step(), behavior: 'smooth' }); });
+    scroll.classList.add('pannable');
+
+    // drag-to-pan with the mouse; touch devices use native scrolling
+    var dragging = false, startY = 0, startTop = 0;
+    scroll.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      dragging = true; startY = e.clientY; startTop = scroll.scrollTop;
+      scroll.classList.add('dragging');
+      scroll.setPointerCapture(e.pointerId);
+    });
+    scroll.addEventListener('pointermove', function (e) {
+      if (dragging) scroll.scrollTop = startTop - (e.clientY - startY);
+    });
+    function endDrag() { dragging = false; scroll.classList.remove('dragging'); }
+    scroll.addEventListener('pointerup', endDrag);
+    scroll.addEventListener('pointercancel', endDrag);
     scroll.addEventListener('scroll', update);
 
     applyCap(); update();
