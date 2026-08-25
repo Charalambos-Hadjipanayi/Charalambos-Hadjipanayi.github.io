@@ -292,7 +292,10 @@ section { padding: 5rem 0; }
   display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
 }
 .project-info { padding: 1rem 1.25rem 0.75rem; }
-.project-card h3 { font-size: 0.97rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0; }
+.project-card h3 {
+  font-size: 0.97rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0;
+  line-height: 1.35; min-height: 2.7em; /* reserve 2 lines so 1-line titles don't leave cards shorter */
+}
 .project-card .project-tag {
   font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
   color: var(--beige);
