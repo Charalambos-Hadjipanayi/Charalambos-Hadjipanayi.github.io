@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install scholarly
-        run: pip install scholarly
+        run: pip install scholarly "bibtexparser<2"
 
       - name: Fetch Google Scholar stats
         run: python .github/scripts/fetch_scholar.py
